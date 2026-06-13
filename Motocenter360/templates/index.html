@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MotoCenter360</title>
+</head>
+<body>
+    <h1>Bienvenido a MotoCenter360</h1>
+    <h2>Inventario Actual:</h2>
+    <ul>
+        {% for producto, cantidad in stock.items() %}
+            <li>{{ producto }}: {{ cantidad }} unidades</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
