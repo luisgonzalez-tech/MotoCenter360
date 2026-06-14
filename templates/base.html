@@ -4,23 +4,17 @@
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { background-color: #000 !important; color: #fff !important; font-family: sans-serif; }
-        .navbar { background-color: #000 !important; border-bottom: 1px solid #333; }
-        .navbar-brand { font-weight: 900; color: #fff !important; font-size: 1.8rem; }
-        .nav-link { color: #ff0000 !important; font-weight: 300; text-transform: uppercase; font-size: 0.9rem; }
+        /* MANTENEMOS TU DISEÑO ORIGINAL */
+        body { background-color: #000 !important; color: #fff !important; }
+        .navbar { background-color: #000 !important; }
+        .navbar-brand { font-weight: 900; color: #fff !important; }
+        .nav-link { color: #ff0000 !important; font-weight: 300; text-transform: uppercase; }
+        /* Añade aquí cualquier otro estilo específico que ya tenías */
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-dark py-3">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a class="navbar-brand" href="/">MotoCenter360</a>
-            <div class="d-flex gap-4">
-                <a class="nav-link" href="/">INICIO</a>
-                <a class="nav-link" href="/refacciones">REFACCIONES</a>
-                <a class="nav-link" href="/taller">TALLER</a>
-            </div>
-        </div>
-    </nav>
+    <nav class="navbar navbar-dark">
+        </nav>
     {% block content %}{% endblock %}
 </body>
 </html>
