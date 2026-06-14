@@ -2,51 +2,33 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MotoCenter360</title>
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Tu archivo de estilos personalizados -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <!-- Barra de navegación con soporte para menú desplegable -->
-    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="/">MotoCenter360</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Inicio</a>
-                    </li>
-                    <!-- Menú Desplegable de Categorías -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Categorías
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Motocicletas</a></li>
-                            <li><a class="dropdown-item" href="#">Refacciones</a></li>
-                            <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/taller">Taller</a>
-                    </li>
-                </ul>
-            </div>
+
+<nav class="navbar-dark bg-dark py-3">
+    <div class="container">
+        <!-- Logo y Buscador -->
+        <div class="d-flex align-items-center justify-content-between mb-3">
+            <a class="navbar-brand fw-bold fs-3" href="/">MotoCenter360</a>
+            <input type="text" class="form-control w-50" placeholder="Hola, ¿Qué estás buscando?">
         </div>
-    </nav>
+        <!-- Menú Principal -->
+        <div class="d-flex gap-4">
+            <a class="nav-link text-white" href="/">INICIO</a>
+            <a class="nav-link text-white" href="#">MOTOCICLETAS</a>
+            <a class="nav-link text-white" href="#">REFACCIONES</a>
+            <a class="nav-link text-white" href="#">ACCESORIOS</a>
+            <a class="nav-link text-white" href="/taller">TALLER</a>
+        </div>
+    </div>
+</nav>
 
-    <!-- Contenedor principal donde se insertará el index.html -->
-    <main class="container my-4">
-        {% block content %}{% endblock %}
-    </main>
+<main>
+    {% block content %}{% endblock %}
+</main>
 
-    <!-- JS de Bootstrap (Obligatorio para que el menú desplegable funcione al hacer clic) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
