@@ -1,25 +1,64 @@
-<header style="background-color: #000; color: #fff;">
-    <div class="container py-2">
-        <!-- Nivel 1: Logo, Buscador y Usuario -->
-        <div class="d-flex align-items-center justify-content-between">
-            <a href="/" class="navbar-brand fw-bold fs-3 text-white">MotoCenter360</a>
-            <input type="text" class="form-control w-25" placeholder="Hola, ¿Qué estás buscando?">
-            <div class="d-flex gap-3">
-                <span>👤 Crea tu cuenta</span>
-                <span>🔑 Ingresar</span>
-                <span>🛒 0</span>
-            </div>
+<header class="main-header">
+
+    <!-- FILA SUPERIOR -->
+    <div class="top-header container-fluid">
+
+        <div class="logo">
+            <a href="/" class="text-decoration-none">
+                <h1> MotoCenter<span>360</span></h1>
+            </a>
         </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Hola, ¿Qué estás buscando?">
+            <button>🔍</button>
+        </div>
+
+        <div class="header-actions">
+            <a href="#">👤 Crear Cuenta</a>
+            <a href="#">🔑 Ingresar</a>
+            <a href="#">🛒 <span class="cart-badge">0</span></a>
+        </div>
+
     </div>
-    <!-- Nivel 2: Navegación -->
-    <nav class="border-top border-secondary">
-        <div class="container d-flex gap-4 py-2">
-            <div class="bg-danger px-3 py-1">CATEGORÍAS ▾</div>
-            <a href="#" class="nav-link text-white">INICIO</a>
-            <a href="#" class="nav-link text-white">MOTOCICLETAS</a>
-            <a href="#" class="nav-link text-white">REFACCIONES</a>
-            <a href="#" class="nav-link text-white">OFERTAS</a>
-            <a href="#" class="nav-link text-white">TALLER</a>
+
+    <!-- MENU -->
+    <nav class="menu-bar">
+
+        <div class="menu-categorias">
+            ☰ CATEGORÍAS ▼
         </div>
+
+        <ul>
+
+            <li><a href="/">INICIO</a></li>
+
+            <li>
+                <a href="/catalogo">MOTOCICLETAS</a>
+            </li>
+
+            <li>
+                <a href="#">REFACCIONES</a>
+            </li>
+
+            <li>
+                <a href="#">OFERTAS</a>
+            </li>
+
+            <li>
+                <a href="/taller">TALLER</a>
+            </li>
+
+            <li>
+                <a href="#">HISTORIAL</a>
+            </li>
+
+            <li>
+                <a href="#">CONTACTO</a>
+            </li>
+
+        </ul>
+
     </nav>
+
 </header>
