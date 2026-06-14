@@ -6,10 +6,6 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/catalogo')
-def catalogo():
-    return render_template('catalogo.html')
-
 @app.route('/taller')
 def taller():
     return render_template('taller.html')
