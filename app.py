@@ -1,13 +1,17 @@
-from flask import Flask, render_template
-
-app = Flask(__name__)
-
-inventario = {
-    "Aceite": 15,
-    "Balatas": 10,
-    "Filtros": 8
-}
-
-@app.route('/')
-def index():
-    return render_template('index.html', stock=inventario)
+# En tu archivo app.py
+inventario = [
+    {
+        "nombre": "Llanta Motocicleta",
+        "precio": 306.00,
+        "marca": "Motometa",
+        "stock": 15,
+        "imagen": "llanta.jpg" # Debes guardar estas imágenes en la carpeta 'static'
+    },
+    {
+        "nombre": "Manija de freno",
+        "precio": 18.00,
+        "marca": "Kinlley",
+        "stock": 10,
+        "imagen": "manija.jpg"
+    }
+]
