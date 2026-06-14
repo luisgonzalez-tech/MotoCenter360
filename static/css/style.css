@@ -1,0 +1,8 @@
+/* Colores institucionales */
+:root {
+    --rojo-moto: #d0021b;
+    --negro-profundo: #1a1a1a;
+}
+body { font-family: sans-serif; background-color: #f4f4f4; }
+.navbar { background-color: var(--negro-profundo); border-bottom: 4px solid var(--rojo-moto); }
+.btn-primary { background-color: var(--rojo-moto); border: none; }
