@@ -1,33 +1,12 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<div style="background-color: #000; min-height: 100vh; padding: 40px 0;">
-    <div class="container">
-        <h2 style="color: #fff; font-weight: 900; font-style: italic; text-transform: uppercase; margin-bottom: 30px;">
-            Catálogo de <span style="color: #ff0000;">Refacciones</span>
-        </h2>
-        
-        <div class="row g-4">
-            {% set categorias = [
-                "Aceites", "Amortiguadores", "Asientos", "Baterías",
-                "Bujías", "Cables", "Cámaras", "Carrocería/Plásticos",
-                "Cascos", "Embragues", "Escape/Silenciador", "Espejos",
-                "Filtros", "Frenos", "Herramientas", "Llantas",
-                "Luces", "Manubrios y Mandos", "Motores y sus Partes", "Parches",
-                "Parrillas y Defensas", "Posapies/Paradores", "Productos Químicos", "Puños",
-                "Rines, Aros, Ruedas", "Ruedas", "Sistema Combustible", "Sistema Eléctrico",
-                "Sistema Enfriamiento", "Sistema Transmisión", "Soportes", "Velocímetros"
-            ] %}
-            
-            {% for categoria in categorias %}
-            <div class="col-6 col-md-3">
-                <a href="#" style="color: #ccc; text-decoration: none; font-size: 1.1rem; transition: 0.3s;" 
-                   onmouseover="this.style.color='#ff0000'" onmouseout="this.style.color='#ccc'">
-                   • {{ categoria }}
-                </a>
-            </div>
-            {% endfor %}
-        </div>
+<div class="container my-5">
+    <h2 class="text-white">Catálogo de Refacciones</h2>
+    <div class="row">
+        {% set lista = ["Aceites", "Amortiguadores", "Asientos", "Baterías", "Bujías", "Cables", "Camaras", "Carroceria/Plasticos", "Cascos", "Embragues", "Escape/Silenciador", "Espejos", "Filtros", "Frenos", "Herramientas", "Llantas", "Luces", "Manubrios y Mandos", "Motores y sus Partes", "Parches", "Parrillas y Defensas", "Posapies/Paradores", "Productos Quimicos", "Puños", "Rines, Aros, Ruedas", "Ruedas", "Sistema Combustible", "Sistema Electrico", "Sistema Enfriamiento", "Sistema Transmision", "Soportes", "Velocimetros"] %}
+        {% for cat in lista %}
+        <div class="col-md-3 text-white py-2"> {{ cat }} </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
