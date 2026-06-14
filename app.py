@@ -2,7 +2,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# Definimos la lista aquí para asegurar que siempre esté disponible
+# Definimos la lista aquí para que no haya errores de referencia
 CATEGORIAS = [
     "Aceites", "Amortiguadores", "Asientos", "Baterías", "Bujías", 
     "Cables", "Cámaras", "Carrocería/Plásticos", "Cascos", "Embragues", 
@@ -14,8 +14,17 @@ CATEGORIAS = [
     "Soportes", "Velocímetros"
 ]
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/taller')
+def taller():
+    return render_template('taller.html')
+
 @app.route('/refacciones')
 def refacciones():
     return render_template('refacciones.html', categorias=CATEGORIAS)
 
-# ... (tus otras rutas: @app.route('/'), @app.route('/taller'), etc.)
+if __name__ == '__main__':
+    app.run(debug=True)
