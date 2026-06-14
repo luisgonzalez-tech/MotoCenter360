@@ -7,22 +7,16 @@
         body { background-color: #000 !important; color: #fff !important; font-family: sans-serif; margin: 0; }
         .navbar { background-color: #000 !important; border-bottom: 1px solid #333; padding: 15px 0; }
         .navbar-brand { font-weight: 900; color: #fff !important; font-size: 1.8rem; }
-        .nav-link { color: #ff0000 !important; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; margin-left: 15px; }
         .search-input { border-radius: 50px; padding: 5px 15px; border: none; background: #fff; max-width: 400px; }
+        /* Nuevo estilo para los links en la posición azul */
+        .nav-link-custom { color: #ff0000 !important; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; margin-right: 15px; text-decoration: none; }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-dark">
         <div class="container d-flex align-items-center">
             <a class="navbar-brand" href="/">MotoCenter<span style="color: #ff0000;">360</span></a>
-            <input type="text" class="form-control search-input mx-auto" placeholder="Hola, ¿Qué estás buscando?">
-            <div class="d-flex">
-                <a class="nav-link" href="/">INICIO</a>
-                <a class="nav-link" href="#">MOTOCICLETA</a>
-                <a class="nav-link" href="/refacciones">REFACCIONES</a>
-                <a class="nav-link" href="#">ACCESORIOS</a>
-                <a class="nav-link" href="#">MÁS ALTO</a>
-            </div>
+            <input type="text" class="form-control search-input" style="margin-left: 20px; width: 300px;" placeholder="Hola, ¿Qué estás buscando?">
         </div>
     </nav>
     {% block content %}{% endblock %}
