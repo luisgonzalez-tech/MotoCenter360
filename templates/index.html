@@ -1,33 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="text-center">
-    <!-- Ruta verificada en minúsculas -->
+<div class="hero-container">
     <img src="{{ url_for('static', filename='img/motos/banner.jpg') }}" alt="Moto Banner" class="hero-image">
-    
-    <h1 class="display-4 fw-bold">LA FUERZA DETRÁS DE CADA KILÓMETRO</h1>
-    <p class="lead text-muted mb-5">MotoCenter360: Expertos en refacciones y servicios</p>
+    <div class="hero-text">
+        <h1 class="fw-bold">LA FUERZA DETRÁS<br>DE CADA KILÓMETRO</h1>
+    </div>
 </div>
 
+<div class="text-center mb-4">
+    <p class="text-muted">MotoCenter360: Expertos en refacciones y servicios</p>
+</div>
+
+<!-- Resto de tu inventario -->
 <div class="row g-4">
-    <!-- Contenido de inventario -->
-    <div class="col-md-4">
-        <div class="card h-100 shadow-sm border-0 p-3">
-            <h5 class="text-primary">Aceite</h5>
-            <p>Disponibilidad: <span class="badge bg-success">15 unidades</span></p>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card h-100 shadow-sm border-0 p-3">
-            <h5 class="text-primary">Balatas</h5>
-            <p>Disponibilidad: <span class="badge bg-success">10 unidades</span></p>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card h-100 shadow-sm border-0 p-3">
-            <h5 class="text-primary">Filtros</h5>
-            <p>Disponibilidad: <span class="badge bg-success">8 unidades</span></p>
-        </div>
-    </div>
+    <!-- Tus cards de inventario aquí -->
 </div>
 {% endblock %}
