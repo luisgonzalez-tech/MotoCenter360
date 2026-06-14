@@ -4,14 +4,14 @@
     .hero-container { position: relative; width: 100%; height: 500px; overflow: hidden; }
     .hero-image { width: 100%; height: 100%; object-fit: cover; }
     
-    /* Degradado oscuro a la izquierda que se desvanece hacia la derecha */
+    /* CAMBIO AQUÍ: Degradado más oscuro e intenso en la zona izquierda */
     .overlay {
         position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-        background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 45%, rgba(0,0,0,0) 100%);
+        background: linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0) 65%);
         z-index: 1;
     }
     
-    /* Texto posicionado a la izquierda con sombra */
+    /* Texto intacto */
     .text-content { 
         position: absolute; top: 22%; left: 5%; 
         z-index: 10; 
