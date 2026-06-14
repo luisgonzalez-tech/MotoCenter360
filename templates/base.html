@@ -2,31 +2,26 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>MotoCenter360</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body { background-color: #000 !important; color: #fff !important; font-family: sans-serif; margin: 0; }
-        .navbar { background-color: #000 !important; border-bottom: 1px solid #333; }
+        .navbar { background-color: #000 !important; border-bottom: 1px solid #333; padding: 15px 0; }
         .navbar-brand { font-weight: 900; color: #fff !important; font-size: 1.8rem; }
-        .nav-link { color: #ff0000 !important; font-weight: 300; text-transform: uppercase; font-size: 0.9rem; }
+        /* Menú con el orden solicitado */
+        .nav-link { color: #ff0000 !important; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; }
         .search-input { border-radius: 50px; padding: 5px 15px; border: none; background: #fff; max-width: 400px; }
-        
-        /* Banner con efecto oscuro profesional */
-        .hero-container { position: relative; width: 100%; height: 500px; overflow: hidden; }
-        .hero-image { width: 100%; height: 100%; object-fit: cover; filter: brightness(40%); }
-        .hero-text-overlay { position: absolute; top: 25%; left: 8%; z-index: 10; text-shadow: 3px 3px 10px rgba(0,0,0,1); }
-        .btn-red { background-color: #ff0000; color: #fff; border: none; padding: 12px 35px; font-weight: bold; margin-top: 20px; transition: 0.3s; }
-        .btn-red:hover { background-color: #cc0000; }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-dark py-3">
+    <nav class="navbar navbar-dark">
         <div class="container d-flex align-items-center">
             <a class="navbar-brand" href="/">MotoCenter<span style="color: #ff0000;">360</span></a>
             <input type="text" class="form-control search-input mx-auto" placeholder="Hola, ¿Qué estás buscando?">
-            <div class="d-flex gap-4">
+            <div class="d-flex gap-3">
                 <a class="nav-link" href="/">INICIO</a>
+                <a class="nav-link" href="#">MOTOCICLETAS</a>
                 <a class="nav-link" href="/refacciones">REFACCIONES</a>
+                <a class="nav-link" href="#">ACCESORIOS</a>
                 <a class="nav-link" href="/taller">TALLER</a>
             </div>
         </div>
