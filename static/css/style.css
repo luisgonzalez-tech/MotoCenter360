@@ -1,22 +1,37 @@
-/* Banner estático y elegante */
+/* Forzar fondo negro en toda la página */
+body {
+    background-color: #000000 !important;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Barra de navegación negra */
+.navbar {
+    background-color: #000000 !important;
+    border-bottom: 1px solid #333;
+}
+
+/* Contenedor del banner */
 .hero-container {
     position: relative;
     width: 100%;
-    height: 500px;
+    height: 500px; /* Altura fija para que no se deforme */
+    overflow: hidden;
 }
 
 .hero-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Mantiene la proporción de la foto */
 }
 
-/* Texto superpuesto con estilo profesional */
+/* Texto sobre la imagen (alineado a la izquierda) */
 .hero-text-overlay {
     position: absolute;
     top: 20%;
     left: 8%;
-    color: white;
+    color: #ffffff;
     max-width: 500px;
 }
 
@@ -24,11 +39,10 @@
     font-size: 3.5rem;
     font-weight: 900;
     line-height: 1.1;
+    text-transform: uppercase;
 }
 
-.hero-text-overlay .text-danger {
-    color: #dc3545 !important;
-}
+.text-danger { color: #dc3545 !important; }
 
 .btn-custom {
     background-color: #dc3545;
