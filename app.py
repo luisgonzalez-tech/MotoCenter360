@@ -2,8 +2,8 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# Lista de categorías para refacciones
-LISTA_REFACCIONES = [
+# Definimos las categorías aquí, es la forma más limpia
+CATEGORIAS = [
     "Aceites", "Amortiguadores", "Asientos", "Baterías", "Bujías", 
     "Cables", "Cámaras", "Carrocería/Plásticos", "Cascos", "Embragues", 
     "Escape/Silenciador", "Espejos", "Filtros", "Frenos", "Herramientas", 
@@ -24,4 +24,7 @@ def taller():
 
 @app.route('/refacciones')
 def refacciones():
-    return render_template('refacciones.html', categorias=LISTA_REFACCIONES)
+    return render_template('refacciones.html', categorias=CATEGORIAS)
+
+if __name__ == '__main__':
+    app.run(debug=True)
