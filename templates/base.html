@@ -2,62 +2,31 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>MotoCenter360</title>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<body style="padding-top: 120px;"> <!-- Espacio para que la barra no tape el banner -->
 
-<body>
-
-<header class="main-header">
-
-    <div class="top-header">
-
-        <div class="logo">
-            <a href="/" style="text-decoration:none;">
-                <h1>MotoCenter<span>360</span></h1>
-            </a>
-        </div>
-
-        <div class="search-box">
-            <input type="text" placeholder="Hola, ¿Qué estás buscando?">
-            <button>🔍</button>
-        </div>
-
-        <div class="header-actions">
-            <a href="#">👤 Crear Cuenta</a>
-            <a href="#">🔑 Ingresar</a>
-            <a href="#">🛒 <span class="cart-badge">0</span></a>
-        </div>
-
+<nav class="navbar navbar-dark bg-dark fixed-top py-3">
+    <div class="container d-flex align-items-center">
+        <a class="navbar-brand fw-bold fs-3" href="/">MotoCenter360</a>
+        <input type="text" class="form-control mx-4" style="max-width: 400px;" placeholder="Hola, ¿Qué estás buscando?">
     </div>
-
-    <nav class="menu-bar">
-
-        <div class="menu-categorias">
-            ☰ CATEGORÍAS ▼
+    <div class="container mt-2">
+        <div class="d-flex gap-4">
+            <a class="nav-link text-white" href="/">INICIO</a>
+            <a class="nav-link text-white" href="#">MOTOCICLETAS</a>
+            <a class="nav-link text-white" href="#">REFACCIONES</a>
+            <a class="nav-link text-white" href="#">ACCESORIOS</a>
+            <a class="nav-link text-white" href="/taller">TALLER</a>
         </div>
+    </div>
+</nav>
 
-        <ul>
-            <li><a href="/">INICIO</a></li>
-            <li><a href="/catalogo">MOTOCICLETAS</a></li>
-            <li><a href="#">REFACCIONES</a></li>
-            <li><a href="#">OFERTAS</a></li>
-            <li><a href="/taller">TALLER</a></li>
-        </ul>
+<main>
+    {% block content %}{% endblock %}
+</main>
 
-    </nav>
-
-</header>
-
-{% block content %}
-{% endblock %}
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
