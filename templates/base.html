@@ -2,31 +2,37 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MotoCenter360</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body style="background-color: #000000 !important; color: #ffffff !important; font-family: 'Montserrat', sans-serif;">
+<body style="background-color: #000000 !important; color: #ffffff !important; font-family: 'Montserrat', sans-serif; margin: 0;">
 
-<nav style="background-color: #000000 !important; border-bottom: 2px solid #222;" class="py-3">
-    <div class="container d-flex align-items-center">
-        <div class="text-center" style="margin-right: 20px;">
-            <img src="https://cdn-icons-png.flaticon.com/512/3062/3062645.png" style="width: 25px; display: block; margin: 0 auto;">
-            <a href="/" style="color: #ffffff; text-decoration: none; font-weight: 900; font-size: 1.4rem;">MotoCenter<span style="color: #ff0000;">360</span></a>
+    <nav style="background-color: #000000 !important; border-bottom: 2px solid #333;" class="py-3">
+        <div class="container d-flex align-items-center">
+            <!-- Logo con icono -->
+            <div class="text-center" style="margin-right: 30px;">
+                <img src="https://cdn-icons-png.flaticon.com/512/3062/3062645.png" style="width: 30px; display: block; margin: 0 auto 5px auto;">
+                <a href="/" style="color: #ffffff; text-decoration: none; font-weight: 900; font-size: 1.5rem; letter-spacing: 1px;">
+                    MotoCenter<span style="color: #ff0000;">360</span>
+                </a>
+            </div>
+            <!-- Buscador -->
+            <input type="text" placeholder="Hola, ¿Qué estás buscando?" style="width: 350px; border-radius: 50px; padding: 8px 20px; border: none; background: #fff;">
         </div>
-        <input type="text" placeholder="Hola, ¿Qué estás buscando?" style="width: 300px; border-radius: 50px; padding: 5px 15px; border: none;">
-    </div>
-    <div class="container mt-2">
-        <div class="d-flex gap-4">
-            <a href="/" style="color: #ff0000; text-decoration: none; font-weight: 300; font-size: 0.9rem;">INICIO</a>
-            <a href="#" style="color: #ff0000; text-decoration: none; font-weight: 300; font-size: 0.9rem;">MOTOCICLETAS</a>
-            <a href="#" style="color: #ff0000; text-decoration: none; font-weight: 300; font-size: 0.9rem;">REFACCIONES</a>
-            <a href="#" style="color: #ff0000; text-decoration: none; font-weight: 300; font-size: 0.9rem;">ACCESORIOS</a>
-            <a href="/taller" style="color: #ff0000; text-decoration: none; font-weight: 300; font-size: 0.9rem;">TALLER</a>
+        <!-- Menú -->
+        <div class="container mt-3">
+            <div class="d-flex gap-4">
+                <a href="/" style="color: #ff0000; text-decoration: none; font-weight: 300; font-size: 0.9rem; text-transform: uppercase;">INICIO</a>
+                <a href="#" style="color: #ff0000; text-decoration: none; font-weight: 300; font-size: 0.9rem; text-transform: uppercase;">MOTOCICLETAS</a>
+                <a href="#" style="color: #ff0000; text-decoration: none; font-weight: 300; font-size: 0.9rem; text-transform: uppercase;">REFACCIONES</a>
+                <a href="#" style="color: #ff0000; text-decoration: none; font-weight: 300; font-size: 0.9rem; text-transform: uppercase;">ACCESORIOS</a>
+                <a href="/taller" style="color: #ff0000; text-decoration: none; font-weight: 300; font-size: 0.9rem; text-transform: uppercase;">TALLER</a>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-{% block content %}{% endblock %}
+    {% block content %}{% endblock %}
 </body>
 </html>
