@@ -2,8 +2,8 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# Definimos la lista aquí para que no haya errores de referencia
-CATEGORIAS = [
+# Lista de categorías para refacciones
+LISTA_REFACCIONES = [
     "Aceites", "Amortiguadores", "Asientos", "Baterías", "Bujías", 
     "Cables", "Cámaras", "Carrocería/Plásticos", "Cascos", "Embragues", 
     "Escape/Silenciador", "Espejos", "Filtros", "Frenos", "Herramientas", 
@@ -24,7 +24,4 @@ def taller():
 
 @app.route('/refacciones')
 def refacciones():
-    return render_template('refacciones.html', categorias=CATEGORIAS)
-
-if __name__ == '__main__':
-    app.run(debug=True)
+    return render_template('refacciones.html', categorias=LISTA_REFACCIONES)
