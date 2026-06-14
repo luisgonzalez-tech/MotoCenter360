@@ -1,9 +1,18 @@
-body {
-    background-color: #12161f;
-    color: white;
+/* Colores institucionales */
+:root {
+    --rojo-moto: #d0021b;
+    --negro-profundo: #1a1a1a;
 }
-.card {
-    background-color: #1e2533;
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.btn-primary {
+    background-color: var(--rojo-moto);
     border: none;
-    color: white;
 }
