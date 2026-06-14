@@ -1,28 +1,15 @@
-/* Protege la barra azul */
-body {
-    padding-top: 70px; /* Ajusta este valor si tu barra es más alta */
-    background-color: #f8f9fa !important;
-}
-
-.navbar {
-    background-color: #0056b3 !important;
-    position: fixed !important;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
+/* Limpieza de la barra */
+.navbar-dark { background-color: #000 !important; }
+.nav-link:hover { color: #dc3545 !important; }
 
 /* Contenedor del banner */
-.hero-container {
-    width: 100%;
-    margin-bottom: 20px;
-}
+.hero-container { position: relative; width: 100%; }
+.hero-image { width: 100%; height: 500px; object-fit: cover; }
 
-.hero-image {
-    width: 100%;
-    height: auto;
-    max-height: 500px;
-    object-fit: cover;
-    border-radius: 10px;
-    display: block;
+/* Posición del texto sobre la foto */
+.hero-text-overlay {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    max-width: 500px;
 }
