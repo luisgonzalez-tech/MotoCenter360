@@ -1,11 +1,119 @@
 {% extends 'base.html' %}
+
 {% block content %}
-<div class="hero-container">
+
+<!-- HERO -->
+<section class="hero-section">
     <img src="{{ url_for('static', filename='img/motos/banner.jpg') }}" class="hero-image">
-    <div class="hero-text-overlay">
-        <h1 class="display-3 fw-bold text-uppercase">La fuerza detrás<br><span class="text-danger">de cada kilómetro</span></h1>
-        <p>Nueva línea de refacciones diseñada para ofrecer máximo desempeño, precisión y durabilidad.</p>
-        <button class="btn-red">CONOCE MÁS</button>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <h1>
+            LA FUERZA DETRÁS <br>
+            <span>DE CADA KILÓMETRO</span>
+        </h1>
+
+        <p>
+            Nueva línea de refacciones diseñadas para ofrecer
+            máximo desempeño, precisión y durabilidad
+            en cada recorrido.
+        </p>
+
+        <a href="/catalogo" class="btn-red">
+            CONOCE MÁS
+        </a>
     </div>
-</div>
+</section>
+
+<!-- BENEFICIOS -->
+<section class="container my-5">
+    <div class="row g-4">
+
+        <div class="col-md-3">
+            <div class="benefit-card">
+                <h3>Compra segura</h3>
+                <p>Pagos protegidos y cotizaciones rápidas.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="benefit-card">
+                <h3>Taller especializado</h3>
+                <p>Mantenimiento y reparación profesional.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="benefit-card">
+                <h3>Historial por placa</h3>
+                <p>Consulta servicios realizados.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="benefit-card">
+                <h3>Refacciones</h3>
+                <p>Control de inventario inteligente.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- CATEGORIAS -->
+<section class="container mb-5">
+
+    <h2 class="section-title">
+        CATEGORÍAS
+    </h2>
+
+    <div class="row g-4">
+
+        <div class="col-md-2">
+            <div class="category-card">
+                <img src="{{ url_for('static', filename='img/motos/banner.jpg') }}">
+                <h5>Motocicletas</h5>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="category-card">
+                <img src="{{ url_for('static', filename='img/motos/banner.jpg') }}">
+                <h5>Refacciones</h5>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="category-card">
+                <img src="{{ url_for('static', filename='img/motos/banner.jpg') }}">
+                <h5>Cascos</h5>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="category-card">
+                <img src="{{ url_for('static', filename='img/motos/banner.jpg') }}">
+                <h5>Llantas</h5>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="category-card">
+                <img src="{{ url_for('static', filename='img/motos/banner.jpg') }}">
+                <h5>Frenos</h5>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="category-card">
+                <img src="{{ url_for('static', filename='img/motos/banner.jpg') }}">
+                <h5>Lubricantes</h5>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
 {% endblock %}
