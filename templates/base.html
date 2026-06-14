@@ -1,22 +1,25 @@
-<nav class="navbar navbar-expand-lg navbar-dark py-3">
-    <div class="container d-flex align-items-center">
-        <a class="navbar-brand fw-bold fs-3" href="/">
-            <span class="text-white">MotoCenter</span><span class="text-danger">360</span>
-        </a>
-        
-        <input type="text" class="form-control search-input mx-auto" style="max-width: 400px;" placeholder="Hola, ¿Qué estás buscando?">
-    </div>
-    
-    <div class="container mt-2">
-        <div class="d-flex gap-4">
-            <a class="nav-link text-danger fw-bold" href="/">INICIO</a>
-            <a class="nav-link text-danger fw-bold" href="#">MOTOCICLETAS</a>
-            <a class="nav-link text-danger fw-bold" href="#">REFACCIONES</a>
-            <a class="nav-link text-danger fw-bold" href="#">ACCESORIOS</a>
-            <a class="nav-link text-danger fw-bold" href="/taller">TALLER</a>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-dark py-3">
+        <div class="container d-flex align-items-center">
+            <a class="navbar-brand fw-bold fs-3" href="/">MotoCenter<span class="text-danger">360</span></a>
+            <input type="text" class="form-control search-input mx-auto" style="max-width: 400px;" placeholder="Hola, ¿Qué estás buscando?">
         </div>
-    </div>
-</nav>
-
-{% block content %}{% endblock %}
-</nav>
+        <div class="container mt-2">
+            <div class="d-flex gap-4">
+                <a class="nav-link text-danger fw-bold" href="/">INICIO</a>
+                <a class="nav-link text-danger fw-bold" href="#">MOTOCICLETAS</a>
+                <a class="nav-link text-danger fw-bold" href="#">REFACCIONES</a>
+                <a class="nav-link text-danger fw-bold" href="#">ACCESORIOS</a>
+                <a class="nav-link text-danger fw-bold" href="/taller">TALLER</a>
+            </div>
+        </div>
+    </nav>
+    {% block content %}{% endblock %}
+</body>
+</html>
