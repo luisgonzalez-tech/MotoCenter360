@@ -1,20 +1,24 @@
-.hero-text-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #ffffff;
+.hero-container {
+    width: 100%;
+    margin-bottom: 30px;
     text-align: center;
-    width: 80%;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.3); /* Fondo oscuro suave para que el texto resalte */
-    border-radius: 10px;
 }
 
-.hero-text-overlay h1 {
-    font-size: 2.5rem;
+.hero-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+}
+
+.hero-text-section {
+    margin-top: 15px;
+    color: #333;
+}
+
+.hero-text-section h1 {
+    font-size: 2rem;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 0.5rem;
 }
