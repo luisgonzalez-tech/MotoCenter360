@@ -1,20 +1,41 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<!-- Contenedor del Banner -->
 <div class="hero-container">
-    <!-- Imagen del banner -->
     <img src="{{ url_for('static', filename='img/motos/banner.jpg') }}" alt="Moto Banner" class="hero-image">
     
-    <!-- Texto superpuesto -->
+    <!-- Texto alineado y centrado sobre la imagen -->
     <div class="hero-text-overlay">
-        <h1 class="fw-bold">LA FUERZA DETRÁS DE CADA KILÓMETRO</h1>
-        <p class="lead">MotoCenter360: Expertos en refacciones y servicios</p>
+        <h1 class="display-4 fw-bold">LA FUERZA DETRÁS<br>DE CADA KILÓMETRO</h1>
     </div>
 </div>
 
-<!-- Resto de tu contenido (Cards de inventario) -->
-<div class="row g-4">
-    <!-- Aquí van tus cards -->
+<!-- Inventario -->
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Bienvenido a MotoCenter360</h2>
+    <p class="text-center text-muted mb-5">Inventario Actual:</p>
+    
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0 p-3">
+                <h5 class="text-primary">Aceite</h5>
+                <span class="badge bg-success">15 unidades</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0 p-3">
+                <h5 class="text-primary">Balatas</h5>
+                <span class="badge bg-success">10 unidades</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0 p-3">
+                <h5 class="text-primary">Filtros</h5>
+                <span class="badge bg-success">8 unidades</span>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
