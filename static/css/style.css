@@ -1,15 +1,27 @@
 /* Barra de navegación roja */
 .navbar {
-    background-color: #dc3545 !important; 
+    background-color: #dc3545 !important;
     padding: 1rem 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 .navbar-brand, .nav-link {
     color: white !important;
 }
 
-/* Estilo para la imagen principal */
+/* Menú desplegable */
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    margin-top: 5px;
+}
+
+.dropdown-item:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Banner de inicio */
 .hero-image {
     width: 100%;
     max-height: 400px;
@@ -17,7 +29,6 @@
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     margin-bottom: 30px;
-    display: block;
 }
 
 body { background-color: #f8f9fa; }
