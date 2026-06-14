@@ -11,11 +11,12 @@
         .nav-link { color: #ff0000 !important; font-weight: 300; text-transform: uppercase; font-size: 0.9rem; }
         .search-input { border-radius: 50px; padding: 5px 15px; border: none; background: #fff; max-width: 400px; }
         
-        /* Estilos para tu banner (aseguran que el hero se vea bien) */
+        /* Banner con efecto oscuro profesional */
         .hero-container { position: relative; width: 100%; height: 500px; overflow: hidden; }
-        .hero-image { width: 100%; height: 100%; object-fit: cover; }
-        .hero-text-overlay { position: absolute; top: 20%; left: 10%; color: #fff; z-index: 10; }
-        .btn-red { background-color: #ff0000; color: #fff; border: none; padding: 10px 30px; font-weight: bold; margin-top: 20px; }
+        .hero-image { width: 100%; height: 100%; object-fit: cover; filter: brightness(40%); }
+        .hero-text-overlay { position: absolute; top: 25%; left: 8%; z-index: 10; text-shadow: 3px 3px 10px rgba(0,0,0,1); }
+        .btn-red { background-color: #ff0000; color: #fff; border: none; padding: 12px 35px; font-weight: bold; margin-top: 20px; transition: 0.3s; }
+        .btn-red:hover { background-color: #cc0000; }
     </style>
 </head>
 <body>
@@ -25,14 +26,11 @@
             <input type="text" class="form-control search-input mx-auto" placeholder="Hola, ¿Qué estás buscando?">
             <div class="d-flex gap-4">
                 <a class="nav-link" href="/">INICIO</a>
-                <a class="nav-link" href="#">MOTOCICLETAS</a>
                 <a class="nav-link" href="/refacciones">REFACCIONES</a>
-                <a class="nav-link" href="#">ACCESORIOS</a>
                 <a class="nav-link" href="/taller">TALLER</a>
             </div>
         </div>
     </nav>
-
     {% block content %}{% endblock %}
 </body>
 </html>
