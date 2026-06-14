@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1a1a1a;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="/">MotoCenter360</a>
+            <a class="navbar-brand fw-bold" href="/">MotoCenter360</a>
             <div class="navbar-nav ms-auto">
                 <a class="nav-link" href="/">Inicio</a>
                 <a class="nav-link" href="/catalogo">Catálogo</a>
@@ -18,9 +18,8 @@
             </div>
         </div>
     </nav>
-
-    <div class="container mt-4">
+    <main class="container my-5">
         {% block content %}{% endblock %}
-    </div>
+    </main>
 </body>
 </html>
