@@ -1,27 +1,20 @@
-/* Contenedor principal que agrupa imagen y texto */
-.hero-container {
-    position: relative;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-/* Ajustes para la imagen */
-.hero-image {
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-    display: block;
-}
-
-/* Posicionamiento del texto sobre la imagen */
 .hero-text-overlay {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: #ffffff;
     text-align: center;
-    width: 90%;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.8); /* Sombra para resaltar el texto */
-    padding: 10px;
+    width: 80%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3); /* Fondo oscuro suave para que el texto resalte */
+    border-radius: 10px;
+}
+
+.hero-text-overlay h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
 }
