@@ -1,15 +1,18 @@
-{% extends 'base.html' %}
-{% block content %}
-<div class="hero-container">
-    <img src="{{ url_for('static', filename='img/motos/banner.jpg') }}" class="hero-image">
-    <div class="hero-text-overlay">
-        <h1>LA FUERZA DETRÁS<br><span class="text-danger">DE CADA KILÓMETRO</span></h1>
-        <p class="text-uppercase mt-3">
+<div class="hero-container" style="position: relative; width: 100%; height: 500px;">
+    <img src="{{ url_for('static', filename='img/motos/banner.jpg') }}" style="width: 100%; height: 100%; object-fit: cover; position: absolute; z-index: -1;">
+    <div class="hero-text-overlay" style="position: absolute; top: 15%; left: 8%; color: #ffffff;">
+        <!-- Título Inclinado -->
+        <h1 style="font-size: 3rem; font-weight: 900; font-style: italic; text-transform: uppercase; line-height: 1.1;">
+            LA FUERZA DETRÁS<br><span style="color: #ff0000;">DE CADA KILÓMETRO</span>
+        </h1>
+        
+        <!-- Tres líneas en mayúsculas -->
+        <p style="text-transform: uppercase; margin-top: 15px; line-height: 1.5;">
             NUEVA LÍNEA DE REFACCIONES DISEÑADAS PARA OFRECER<br>
             MAXIMO DESEMPEÑO PRECISIÓN Y DURABILIDAD<br>
             EN CADA RECORRIDO
         </p>
-        <button class="btn-red">CONOCE MÁS</button>
+        
+        <button style="background-color: #ff0000; color: white; padding: 10px 30px; border: none; font-weight: bold; text-transform: uppercase;">CONOCE MÁS</button>
     </div>
 </div>
-{% endblock %}
