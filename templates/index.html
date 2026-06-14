@@ -2,18 +2,19 @@
 {% block content %}
 
 <div class="hero-container">
+    <!-- Imagen del banner -->
     <img src="{{ url_for('static', filename='img/motos/banner.jpg') }}" alt="Moto Banner" class="hero-image">
-    <div class="hero-text">
-        <h1 class="fw-bold">LA FUERZA DETRÁS<br>DE CADA KILÓMETRO</h1>
+    
+    <!-- Texto superpuesto -->
+    <div class="hero-text-overlay">
+        <h1 class="fw-bold">LA FUERZA DETRÁS DE CADA KILÓMETRO</h1>
+        <p class="lead">MotoCenter360: Expertos en refacciones y servicios</p>
     </div>
 </div>
 
-<div class="text-center mb-4">
-    <p class="text-muted">MotoCenter360: Expertos en refacciones y servicios</p>
+<!-- Resto de tu contenido (Cards de inventario) -->
+<div class="row g-4">
+    <!-- Aquí van tus cards -->
 </div>
 
-<!-- Resto de tu inventario -->
-<div class="row g-4">
-    <!-- Tus cards de inventario aquí -->
-</div>
 {% endblock %}
