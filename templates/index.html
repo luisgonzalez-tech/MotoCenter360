@@ -1,14 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
+<style>
+    .hero-container { position: relative; width: 100%; height: 550px; overflow: hidden; }
+    .hero-image { width: 100%; height: 100%; object-fit: cover; filter: brightness(50%); }
+    /* Esta capa oscura asegura que el texto se vea bien */
+    .text-background {
+        position: absolute; top: 25%; left: 8%; z-index: 10;
+        background: rgba(0,0,0,0.5); padding: 30px; border-radius: 10px;
+    }
+</style>
+
 <div class="hero-container">
     <img src="{{ url_for('static', filename='img/motos/banner.jpg') }}" class="hero-image">
-    <div class="hero-text-overlay">
-        <h1 style="font-weight: 900; font-size: 3.5rem;">LA FUERZA DETRÁS<br><span style="color: #ff0000;">DE CADA KILÓMETRO</span></h1>
-        <p class="text-uppercase mt-3" style="font-weight: 300; font-size: 1.2rem;">
+    
+    <div class="text-background">
+        <!-- Título con peso y estilo solicitado -->
+        <h1 style="font-weight: 900; font-size: 4rem; line-height: 1; text-transform: uppercase;">
+            LA FUERZA DETRÁS<br>
+            <span style="color: #ff0000;">DE CADA KILÓMETRO</span>
+        </h1>
+        <p class="mt-4" style="font-weight: 400; font-size: 1.1rem; line-height: 1.5;">
             NUEVA LÍNEA DE REFACCIONES DISEÑADAS PARA OFRECER<br>
-            MÁXIMO DESEMPEÑO, PRECISIÓN Y DURABILIDAD.
+            MAXIMO DESEMPEÑO PRECISIÓN Y DURABILIDAD<br>
+            EN CADA RECORRIDO
         </p>
-        <button class="btn-red">CONOCE MÁS</button>
+        <button style="background-color: #ff0000; color: #fff; border: none; padding: 12px 40px; font-weight: bold; margin-top: 15px;">CONOCE MÁS</button>
     </div>
 </div>
 {% endblock %}
