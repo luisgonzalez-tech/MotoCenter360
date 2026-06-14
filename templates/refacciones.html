@@ -1,19 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container my-5" style="color: #fff !important;">
-    <h2 class="mb-5" style="text-transform: uppercase; font-weight: 900; font-style: italic;">
+<div class="container my-5">
+    <h2 class="mb-4" style="color: #fff; font-weight: 900; font-style: italic; text-transform: uppercase;">
         Catálogo de <span style="color: #ff0000;">Refacciones</span>
     </h2>
-    
-    <div class="row g-4">
-        {% for categoria in categorias %}
-        <div class="col-6 col-md-3">
-            <a href="#" style="color: #ccc; text-decoration: none; font-weight: 300; transition: 0.3s; font-size: 1.1rem;"
-               onmouseover="this.style.color='#ff0000'" 
-               onmouseout="this.style.color='#ccc'">
-               • {{ categoria }}
-            </a>
+    <div class="row">
+        {% for cat in categorias %}
+        <div class="col-6 col-md-3 text-white py-2" style="font-weight: 300;">
+            • {{ cat }}
         </div>
         {% endfor %}
     </div>
