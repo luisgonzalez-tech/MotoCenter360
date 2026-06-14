@@ -1,38 +1,48 @@
-/* Fuente moderna */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700;900&display=swap');
 
 body {
     background-color: #000000 !important;
     color: #ffffff !important;
-    font-family: 'Montserrat', sans-serif; /* Tipo de letra mejorado */
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
 }
 
 /* Navbar */
-.navbar-brand { font-weight: 700; }
+.navbar { background-color: #000000 !important; border-bottom: 1px solid #222; }
+.navbar-brand { font-weight: 700; font-size: 1.8rem; }
 .nav-link { 
-    font-weight: 300 !important; /* Más delgados */
+    font-weight: 200 !important; /* Muy delgado */
     font-size: 0.9rem;
+    color: #ff0000 !important;
+    text-transform: uppercase;
 }
 
 /* Buscador Blanco Sólido */
 .search-input {
     background-color: #ffffff !important;
+    color: #000000 !important;
     border-radius: 50px !important;
-    color: #000 !important;
     border: none;
+    padding: 8px 20px;
 }
 
-/* Inclinación y estilo del título */
-.hero-text-overlay h1 {
-    font-size: 3.2rem;
+/* Banner y Texto */
+.hero-container { position: relative; width: 100%; height: 500px; }
+.hero-image { width: 100%; height: 100%; object-fit: cover; }
+.hero-text-overlay { position: absolute; top: 15%; left: 8%; }
+
+/* Título Inclinado */
+h1 {
+    font-size: 3.5rem;
     font-weight: 900;
-    font-style: italic; /* Inclinación a la derecha */
+    font-style: italic; /* Inclinación */
     text-transform: uppercase;
     line-height: 1;
+    color: #ffffff;
 }
 
+/* Botón y colores */
 .text-danger { color: #ff0000 !important; }
-
 .btn-red {
     background-color: #ff0000;
     color: white;
@@ -40,4 +50,5 @@ body {
     border: none;
     font-weight: bold;
     text-transform: uppercase;
+    margin-top: 20px;
 }
