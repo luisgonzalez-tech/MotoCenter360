@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container my-5" style="color: #fff;">
+    <h2 class="text-center mb-5" style="text-transform: uppercase; font-weight: 900; font-style: italic;">
+        Catálogo de <span style="color: #ff0000;">Refacciones</span>
+    </h2>
+    
+    <div class="row">
+        {% set lista = [
+            "Aceites", "Amortiguadores", "Asientos", "Baterías", 
+            "Bujías", "Cables", "Cámaras", "Carrocería/Plásticos", 
+            "Cascos", "Embragues", "Escape/Silenciador", "Espejos", 
+            "Filtros", "Frenos", "Herramientas", "Llantas", 
+            "Luces", "Manubrios y Mandos", "Motores y sus Partes", "Parches", 
+            "Parrillas y Defensas", "Posapies/Paradores", "Productos Químicos", "Puños", 
+            "Rines, Aros, Ruedas", "Ruedas", "Sistema Combustible", "Sistema Eléctrico", 
+            "Sistema Enfriamiento", "Sistema Transmisión", "Soportes", "Velocímetros"
+        ] %}
+        
+        {% for categoria in lista %}
+        <div class="col-md-3 col-sm-6 mb-3">
+            <a href="/refacciones/{{ categoria | lower }}" 
+               style="color: #ccc; text-decoration: none; font-weight: 300; transition: 0.3s;"
+               onmouseover="this.style.color='#ff0000'" 
+               onmouseout="this.style.color='#ccc'">
+               <i class="fas fa-motorcycle" style="margin-right: 10px;"></i> {{ categoria }}
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
