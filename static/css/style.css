@@ -1,11 +1,11 @@
-/* Contenedor del banner */
+/* Contenedor principal que agrupa imagen y texto */
 .hero-container {
     position: relative;
     width: 100%;
     margin-bottom: 20px;
 }
 
-/* Imagen del banner */
+/* Ajustes para la imagen */
 .hero-image {
     width: 100%;
     height: auto;
@@ -13,15 +13,15 @@
     display: block;
 }
 
-/* Texto sobre la imagen */
-.hero-text {
+/* Posicionamiento del texto sobre la imagen */
+.hero-text-overlay {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
     text-align: center;
-    width: 100%;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Sombra para que se lea mejor */
-    padding: 0 20px;
+    width: 90%;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8); /* Sombra para resaltar el texto */
+    padding: 10px;
 }
