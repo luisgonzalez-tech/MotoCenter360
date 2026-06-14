@@ -1,17 +1,18 @@
-# En tu archivo app.py
-inventario = [
-    {
-        "nombre": "Llanta Motocicleta",
-        "precio": 306.00,
-        "marca": "Motometa",
-        "stock": 15,
-        "imagen": "llanta.jpg" # Debes guardar estas imágenes en la carpeta 'static'
-    },
-    {
-        "nombre": "Manija de freno",
-        "precio": 18.00,
-        "marca": "Kinlley",
-        "stock": 10,
-        "imagen": "manija.jpg"
-    }
-]
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/catalogo')
+def catalogo():
+    return render_template('catalogo.html')
+
+@app.route('/taller')
+def taller():
+    return render_template('taller.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
