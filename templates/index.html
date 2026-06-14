@@ -2,36 +2,39 @@
 {% block content %}
 <style>
     .hero-container { position: relative; width: 100%; height: 500px; overflow: hidden; }
-    .hero-image { width: 100%; height: 100%; object-fit: cover; filter: brightness(40%); }
+    .hero-image { width: 100%; height: 100%; object-fit: cover; }
     
-    /* Ajuste de posición (más a la izquierda) y sombra del texto */
-    .text-content { 
-        position: absolute; 
-        top: 25%; 
-        left: 5%; /* Más pegado a la orilla */
-        z-index: 10; 
-        text-shadow: 3px 3px 8px rgba(0,0,0,1); /* Sombra intensa para resaltar */
+    /* Degradado oscuro a la izquierda que se desvanece hacia la derecha */
+    .overlay {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 45%, rgba(0,0,0,0) 100%);
+        z-index: 1;
     }
+    
+    /* Texto posicionado a la izquierda con sombra */
+    .text-content { 
+        position: absolute; top: 22%; left: 5%; 
+        z-index: 10; 
+        max-width: 650px;
+    }
+    
+    .text-content h1 { font-weight: 900; font-size: 3.5rem; line-height: 1; text-transform: uppercase; color: #fff; margin-bottom: 15px; text-shadow: 2px 2px 4px #000; }
+    .text-content h1 span { color: #ff0000; }
+    .text-content p { font-weight: 400; font-size: 1rem; color: #fff; margin-bottom: 25px; text-shadow: 1px 1px 3px #000; }
+    .btn-conoce { background-color: #ff0000; color: #fff; border: none; padding: 12px 35px; font-weight: bold; cursor: pointer; text-transform: uppercase; transition: 0.3s; }
+    .btn-conoce:hover { background-color: #cc0000; }
 </style>
 
 <div class="hero-container">
     <img src="{{ url_for('static', filename='img/motos/banner.jpg') }}" class="hero-image">
+    <div class="overlay"></div>
     
     <div class="text-content">
-        <!-- Texto ligeramente más pequeño (tamaño 3.2rem) -->
-        <h1 style="font-weight: 900; font-size: 3.2rem; line-height: 0.95; text-transform: uppercase; color: #fff;">
-            LA FUERZA DETRÁS<br>
-            <span style="color: #ff0000;">DE CADA KILÓMETRO</span>
-        </h1>
+        <h1>LA FUERZA DETRÁS<br><span>DE CADA KILÓMETRO</span></h1>
         
-        <p style="font-weight: 400; font-size: 1rem; color: #fff; margin-top: 15px; text-shadow: 1px 1px 4px rgba(0,0,0,0.8);">
-            NUEVA LÍNEA DE REFACCIONES DISEÑADAS PARA OFRECER<br>
-            MÁXIMO DESEMPEÑO, PRECISIÓN Y DURABILIDAD.
-        </p>
+        <p>NUEVA LÍNEA DE REFACCIONES DISEÑADAS PARA OFRECER<br>MÁXIMO DESEMPEÑO, PRECISIÓN Y DURABILIDAD.</p>
         
-        <button style="background-color: #ff0000; color: #fff; border: none; padding: 10px 30px; font-weight: bold; cursor: pointer;">
-            CONOCE MÁS
-        </button>
+        <button class="btn-conoce">CONOCE MÁS</button>
     </div>
 </div>
 {% endblock %}
