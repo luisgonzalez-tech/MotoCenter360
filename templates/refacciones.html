@@ -1,11 +1,20 @@
 {% extends 'base.html' %}
+
 {% block content %}
-<div class="container my-5">
-    <h2 class="text-white">Catálogo de Refacciones</h2>
-    <div class="row">
-        {% set lista = ["Aceites", "Amortiguadores", "Asientos", "Baterías", "Bujías", "Cables", "Camaras", "Carroceria/Plasticos", "Cascos", "Embragues", "Escape/Silenciador", "Espejos", "Filtros", "Frenos", "Herramientas", "Llantas", "Luces", "Manubrios y Mandos", "Motores y sus Partes", "Parches", "Parrillas y Defensas", "Posapies/Paradores", "Productos Quimicos", "Puños", "Rines, Aros, Ruedas", "Ruedas", "Sistema Combustible", "Sistema Electrico", "Sistema Enfriamiento", "Sistema Transmision", "Soportes", "Velocimetros"] %}
-        {% for cat in lista %}
-        <div class="col-md-3 text-white py-2"> {{ cat }} </div>
+<div class="container my-5" style="color: #fff;">
+    <h2 class="mb-5" style="text-transform: uppercase; font-weight: 900; font-style: italic;">
+        Catálogo de <span style="color: #ff0000;">Refacciones</span>
+    </h2>
+    
+    <div class="row g-4">
+        {% for categoria in categorias %}
+        <div class="col-6 col-md-3">
+            <a href="#" style="color: #ccc; text-decoration: none; font-weight: 200; transition: 0.3s; font-size: 1.1rem;"
+               onmouseover="this.style.color='#ff0000'" 
+               onmouseout="this.style.color='#ccc'">
+               • {{ categoria }}
+            </a>
+        </div>
         {% endfor %}
     </div>
 </div>
