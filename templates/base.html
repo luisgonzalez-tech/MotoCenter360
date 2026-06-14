@@ -4,25 +4,19 @@
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Mantenemos tu diseño de fondo negro y letras delgadas */
         body { background-color: #000 !important; color: #fff !important; font-family: sans-serif; }
         .navbar { background-color: #000 !important; border-bottom: 1px solid #333; }
+        .nav-link { color: #ff0000 !important; font-weight: 300; text-transform: uppercase; }
         .navbar-brand { font-weight: 900; color: #fff !important; }
-        .nav-link { color: #ff0000 !important; font-weight: 200 !important; text-transform: uppercase; font-size: 0.9rem; }
-        .search-input { border-radius: 50px; padding: 5px 15px; border: none; background-color: #fff; }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-dark py-3">
-        <div class="container d-flex align-items-center">
-            <a class="navbar-brand fs-2" href="/">MotoCenter<span style="color: #ff0000;">360</span></a>
-            <input type="text" class="form-control search-input mx-auto" style="max-width: 400px;" placeholder="Hola, ¿Qué estás buscando?">
-        </div>
-        <div class="container mt-2">
+        <div class="container">
+            <a class="navbar-brand fs-2" href="/">MotoCenter360</a>
             <div class="d-flex gap-4">
                 <a class="nav-link" href="/">INICIO</a>
-                <a class="nav-link" href="#">MOTOCICLETAS</a>
-                <a class="nav-link" href="/refacciones">REFACCIONES</a> <a class="nav-link" href="#">ACCESORIOS</a>
+                <a class="nav-link" href="/refacciones">REFACCIONES</a>
                 <a class="nav-link" href="/taller">TALLER</a>
             </div>
         </div>
