@@ -1,7 +1,20 @@
 {% extends 'base.html' %}
+
 {% block content %}
-    <div class="text-center">
-        <h1>Bienvenido a MotoCenter360</h1>
-        <p>Tu sistema integral para gestión de motocicletas.</p>
+<div class="container mt-5">
+    <h1 class="text-center">Bienvenido a MotoCenter360</h1>
+    <hr>
+    <h3 class="mt-4">Inventario Actual:</h3>
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <div class="card p-3"><h5>Aceite</h5><p>Disponibilidad: <span class="badge bg-success">15 unidades</span></p></div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-3"><h5>Balatas</h5><p>Disponibilidad: <span class="badge bg-success">10 unidades</span></p></div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-3"><h5>Filtros</h5><p>Disponibilidad: <span class="badge bg-success">8 unidades</span></p></div>
+        </div>
     </div>
+</div>
 {% endblock %}
