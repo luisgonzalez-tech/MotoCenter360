@@ -1,8 +1,14 @@
-/* Colores institucionales */
-:root {
-    --rojo-moto: #d0021b;
-    --negro-profundo: #1a1a1a;
+.card {
+    transition: transform 0.3s ease;
+    border-radius: 15px !important;
 }
-body { font-family: sans-serif; background-color: #f4f4f4; }
-.navbar { background-color: var(--negro-profundo); border-bottom: 4px solid var(--rojo-moto); }
-.btn-primary { background-color: var(--rojo-moto); border: none; }
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+}
+.navbar {
+    padding: 1rem 0;
+}
+body {
+    background-color: #f8f9fa;
+}
