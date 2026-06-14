@@ -1,19 +1,36 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<div class="container mt-5">
-    <h1 class="text-center">Bienvenido a MotoCenter360</h1>
-    <hr>
-    <h3 class="mt-4">Inventario Actual:</h3>
-    <div class="row mt-3">
-        <div class="col-md-4">
-            <div class="card p-3"><h5>Aceite</h5><p>Disponibilidad: <span class="badge bg-success">15 unidades</span></p></div>
+<div class="text-center mb-5">
+    <h1 class="display-4 fw-bold text-primary">Bienvenido a MotoCenter360</h1>
+    <p class="lead text-muted">Gestión inteligente de tu taller mecánico</p>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body">
+                <h5 class="card-title text-primary">Aceite</h5>
+                <p class="card-text">Disponibilidad en almacén:</p>
+                <span class="badge bg-success fs-6">15 unidades</span>
+            </div>
         </div>
-        <div class="col-md-4">
-            <div class="card p-3"><h5>Balatas</h5><p>Disponibilidad: <span class="badge bg-success">10 unidades</span></p></div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body">
+                <h5 class="card-title text-primary">Balatas</h5>
+                <p class="card-text">Disponibilidad en almacén:</p>
+                <span class="badge bg-success fs-6">10 unidades</span>
+            </div>
         </div>
-        <div class="col-md-4">
-            <div class="card p-3"><h5>Filtros</h5><p>Disponibilidad: <span class="badge bg-success">8 unidades</span></p></div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body">
+                <h5 class="card-title text-primary">Filtros</h5>
+                <p class="card-text">Disponibilidad en almacén:</p>
+                <span class="badge bg-success fs-6">8 unidades</span>
+            </div>
         </div>
     </div>
 </div>
