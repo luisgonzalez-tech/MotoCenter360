@@ -1,15 +1,68 @@
-body { background-color: #000000 !important; color: #ffffff !important; margin: 0; padding: 0; }
+/* Estilos Globales - Negro y Blanco Sólidos */
+body {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
 
-/* Barra de navegación */
-.navbar { background-color: #000000 !important; border-bottom: 1px solid #333; }
-.search-input { border-radius: 50px !important; padding: 5px 20px; border: none; }
+/* Navbar Negro Profesional */
+.navbar {
+    background-color: #000000 !important;
+    border-bottom: 2px solid #333;
+}
 
-/* Banner */
-.hero-container { position: relative; width: 100%; height: 500px; }
-.hero-image { width: 100%; height: 100%; object-fit: cover; }
+/* Buscador Redondeado y Centrado */
+.search-input {
+    border-radius: 50px !important;
+    border: 1px solid #444;
+    padding: 10px 20px;
+    background-color: #111;
+    color: white;
+}
 
-/* Texto superpuesto */
-.hero-text-overlay { position: absolute; top: 15%; left: 8%; max-width: 500px; }
-.hero-text-overlay h1 { font-size: 2.8rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; }
-.text-danger { color: #ff0000 !important; } /* Rojo sólido */
-.btn-red { background-color: #ff0000; color: white; padding: 10px 25px; border: none; font-weight: bold; margin-top: 20px; }
+/* Banner de Motocicletas */
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.3) 100%);
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    position: absolute;
+}
+
+/* Texto Superpuesto */
+.hero-text-overlay {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    max-width: 600px;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.1;
+    color: #ffffff;
+}
+
+/* Rojo Intenso */
+.text-danger { color: #ff0000 !important; }
+.btn-red {
+    background-color: #ff0000;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
