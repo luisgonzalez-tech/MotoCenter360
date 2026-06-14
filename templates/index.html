@@ -1,23 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-<div style="position: relative; width: 100%; height: 550px; overflow: hidden;">
-    <!-- Imagen de fondo -->
+<div style="position: relative; width: 100%; height: 500px; background-color: #000;">
     <img src="{{ url_for('static', filename='img/motos/banner.jpg') }}" style="width: 100%; height: 100%; object-fit: cover; position: absolute; z-index: 0;">
     
-    <!-- Oscurecimiento (Degradado fuerte a la izquierda) -->
-    <div style="position: absolute; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.95) 40%, rgba(0,0,0,0.2) 100%); z-index: 1;"></div>
+    <div style="position: absolute; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0.2) 100%); z-index: 1;"></div>
     
-    <!-- Contenido -->
-    <div style="position: absolute; top: 20%; left: 8%; z-index: 2; color: #ffffff;">
-        <h1 style="font-size: 3.8rem; font-weight: 900; font-style: italic; text-transform: uppercase; line-height: 1;">
+    <div style="position: absolute; top: 15%; left: 8%; z-index: 2; color: #fff;">
+        <h1 style="font-size: 3.5rem; font-weight: 900; font-style: italic; text-transform: uppercase; line-height: 1.1;">
             LA FUERZA DETRÁS<br><span style="color: #ff0000;">DE CADA KILÓMETRO</span>
         </h1>
-        <p style="text-transform: uppercase; font-weight: 300; margin-top: 25px; line-height: 1.6; font-size: 1.1rem;">
+        <p style="text-transform: uppercase; margin-top: 20px; line-height: 1.5; font-weight: 300;">
             NUEVA LÍNEA DE REFACCIONES DISEÑADAS PARA OFRECER<br>
             MAXIMO DESEMPEÑO PRECISIÓN Y DURABILIDAD<br>
             EN CADA RECORRIDO
         </p>
-        <button style="background-color: #ff0000; color: #ffffff; border: none; padding: 15px 40px; font-weight: bold; text-transform: uppercase; margin-top: 20px; cursor: pointer;">
+        <button style="background-color: #ff0000; color: white; border: none; padding: 12px 30px; font-weight: bold; text-transform: uppercase;">
             CONOCE MÁS
         </button>
     </div>
