@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container my-5">
-    <h2>Catálogo de Refacciones</h2>
+<div class="container" style="padding-top: 50px;">
+    <h2 style="color: #fff; font-weight: 900; margin-bottom: 30px;">CATÁLOGO DE REFACCIONES</h2>
     <div class="row">
+        {% for cat in categorias %}
+        <div class="col-md-3" style="color: #ccc; padding: 10px;">
+            • {{ cat }}
         </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
