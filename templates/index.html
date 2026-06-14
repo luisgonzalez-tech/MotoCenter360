@@ -1,13 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<section class="hero-section text-center">
-    <h1 class="display-3 fw-bold">LA FUERZA DETRÁS</h1>
-    <h2 class="display-4">DE CADA KILÓMETRO</h2>
-    <p class="lead">MotoCenter360: Expertos en refacciones y servicios</p>
-</section>
+<div class="text-center">
+    <img src="{{ url_for('static', filename='img/motos/banner.jpg') }}" alt="Moto Banner" class="hero-image">
+    
+    <h1 class="display-4 fw-bold text-primary">Bienvenido a MotoCenter360</h1>
+    <p class="lead text-muted mb-5">Gestión inteligente de tu taller mecánico</p>
+</div>
 
 <div class="row g-4">
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 p-3">
+            <h5 class="text-primary">Aceite</h5>
+            <p>Disponibilidad:</p>
+            <span class="badge bg-success fs-6">15 unidades</span>
+        </div>
     </div>
-
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 p-3">
+            <h5 class="text-primary">Balatas</h5>
+            <p>Disponibilidad:</p>
+            <span class="badge bg-success fs-6">10 unidades</span>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 p-3">
+            <h5 class="text-primary">Filtros</h5>
+            <p>Disponibilidad:</p>
+            <span class="badge bg-success fs-6">8 unidades</span>
+        </div>
+    </div>
+</div>
 {% endblock %}
