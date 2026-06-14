@@ -1,39 +1,27 @@
-/* --- Barra de navegación AZUL --- */
-.navbar {
-    background-color: #007bff !important; /* Azul más vivo */
-    padding: 0.8rem 1rem !important;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+/* Contenedor del banner */
+.hero-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
-.navbar-brand, .nav-link {
-    color: #ffffff !important;
-    font-weight: 500;
-}
-
-/* --- Banner Ajustado para ver las 3 motos --- */
+/* Imagen del banner */
 .hero-image {
     width: 100%;
-    height: auto; /* Esto permite que la imagen se ajuste sola y no se deforme */
-    max-height: 500px;
-    object-fit: contain; /* Cambiado de cover a contain para ver toda la imagen */
+    height: auto;
     border-radius: 15px;
-    margin-bottom: 20px;
     display: block;
 }
 
-/* --- Menú Desplegable --- */
-.dropdown-menu {
-    border: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    border-radius: 5px;
-}
-
-.dropdown-item:hover {
-    background-color: #007bff !important;
-    color: #ffffff !important;
-}
-
-body { 
-    background-color: #f8f9fa !important; 
-    font-family: sans-serif;
+/* Texto sobre la imagen */
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    width: 100%;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Sombra para que se lea mejor */
+    padding: 0 20px;
 }
