@@ -15,4 +15,17 @@
 <body>
     <nav class="navbar navbar-dark">
         <div class="container d-flex align-items-center">
-            <a class
+            <a class="navbar-brand" href="/">MotoCenter<span style="color: #ff0000;">360</span></a>
+            <input type="text" class="form-control search-input mx-auto" placeholder="Hola, ¿Qué estás buscando?">
+            <div class="d-flex">
+                <a class="nav-link" href="/">INICIO</a>
+                <a class="nav-link" href="#">MOTOCICLETA</a>
+                <a class="nav-link" href="/refacciones">REFACCIONES</a>
+                <a class="nav-link" href="#">ACCESORIOS</a>
+                <a class="nav-link" href="#">MÁS ALTO</a>
+            </div>
+        </div>
+    </nav>
+    {% block content %}{% endblock %}
+</body>
+</html>
