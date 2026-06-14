@@ -7,11 +7,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<body class="bg-light">
-
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1a1a1a; border-bottom: 4px solid #d0021b;">
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1a1a1a;">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="/">MotoCenter360</a>
+            <a class="navbar-brand" href="/">MotoCenter360</a>
             <div class="navbar-nav ms-auto">
                 <a class="nav-link" href="/">Inicio</a>
                 <a class="nav-link" href="/catalogo">Catálogo</a>
@@ -20,10 +19,8 @@
         </div>
     </nav>
 
-    <main class="container mt-4">
+    <div class="container mt-4">
         {% block content %}{% endblock %}
-    </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </div>
 </body>
 </html>
