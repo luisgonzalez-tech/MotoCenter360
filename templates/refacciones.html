@@ -1,14 +1,145 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<div class="container" style="padding-top: 50px;">
-    <h2 style="color: #fff; font-weight: 900; margin-bottom: 30px;">CATÁLOGO DE REFACCIONES</h2>
-    <div class="row">
-        {% for cat in categorias %}
-        <div class="col-md-3" style="color: #ccc; padding: 10px;">
-            • {{ cat }}
+<style>
+    /* Estilos para el encabezado de la página */
+    .page-header {
+        text-align: center;
+        padding: 50px 20px 30px;
+    }
+
+    .page-header h1 {
+        font-size: 38px;
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    .page-header h1 span {
+        color: #ff0000; /* Toque rojo para mantener la identidad */
+    }
+
+    .page-header p {
+        color: #aaa;
+        font-size: 15px;
+    }
+
+    /* Estilos para la cuadrícula de productos */
+    .catalog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 30px;
+        padding: 0 50px 60px 50px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Estilos para cada tarjeta de refacción */
+    .product-card {
+        background-color: #0a0a0a;
+        border: 1px solid #222;
+        border-radius: 8px;
+        overflow: hidden;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .product-card:hover {
+        border-color: #ff0000;
+        box-shadow: 0 5px 15px rgba(255, 0, 0, 0.15);
+        transform: translateY(-5px);
+    }
+
+    /* Espacio para la imagen del producto */
+    .product-img {
+        width: 100%;
+        height: 200px;
+        background-color: #1a1a1a;
+        object-fit: cover;
+    }
+
+    .product-info {
+        padding: 20px;
+    }
+
+    .product-title {
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+    }
+
+    .product-price {
+        color: #ff0000;
+        font-size: 22px;
+        font-weight: 900;
+        margin-bottom: 15px;
+    }
+
+    .btn-cart {
+        background-color: transparent;
+        color: #fff;
+        border: 1px solid #ff0000;
+        padding: 8px 20px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: 0.3s;
+        border-radius: 4px;
+        width: 100%;
+    }
+
+    .btn-cart:hover {
+        background-color: #ff0000;
+    }
+</style>
+
+<div class="page-header">
+    <h1>Catálogo de <span>Refacciones</span></h1>
+    <p>Calidad y rendimiento garantizado para tu motocicleta</p>
+</div>
+
+<div class="catalog-grid">
+    <!-- Producto 1 -->
+    <div class="product-card">
+        <!-- Aquí irá la ruta de tu imagen real después -->
+        <div class="product-img"></div> 
+        <div class="product-info">
+            <div class="product-title">Balatas Delanteras Sintéticas</div>
+            <div class="product-price">$450.00</div>
+            <button class="btn-cart">Ver Detalles</button>
         </div>
-        {% endfor %}
+    </div>
+
+    <!-- Producto 2 -->
+    <div class="product-card">
+        <div class="product-img"></div>
+        <div class="product-info">
+            <div class="product-title">Filtro de Aceite Deportivo</div>
+            <div class="product-price">$280.00</div>
+            <button class="btn-cart">Ver Detalles</button>
+        </div>
+    </div>
+
+    <!-- Producto 3 -->
+    <div class="product-card">
+        <div class="product-img"></div>
+        <div class="product-info">
+            <div class="product-title">Bujía de Iridio NGK</div>
+            <div class="product-price">$320.00</div>
+            <button class="btn-cart">Ver Detalles</button>
+        </div>
+    </div>
+    
+    <!-- Producto 4 -->
+    <div class="product-card">
+        <div class="product-img"></div>
+        <div class="product-info">
+            <div class="product-title">Kit de Arrastre Reforzado</div>
+            <div class="product-price">$1,850.00</div>
+            <button class="btn-cart">Ver Detalles</button>
+        </div>
     </div>
 </div>
 {% endblock %}
