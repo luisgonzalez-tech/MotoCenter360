@@ -1,10 +1,32 @@
-/* Asegurar fondo negro absoluto */
-/* Gradiente oscuro para el texto */
+/* Colores y Fondo */
+body {
+    background-color: #000000 !important;
+    color: #ffffff;
+    font-family: sans-serif;
+    margin: 0;
+}
+
+.text-danger { color: #ff0000 !important; } /* Rojo muy rojo */
+
+/* Navbar Negro */
+.navbar {
+    background-color: #000000 !important;
+    border-bottom: 2px solid #222;
+}
+
+/* Buscador Redondo */
+.search-input {
+    border-radius: 50px !important;
+    border: none;
+    padding: 10px 20px;
+}
+
+/* Banner con gradiente oscuro a la izquierda */
 .hero-container {
     position: relative;
     width: 100%;
     height: 500px;
-    background: linear-gradient(to right, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.1) 100%);
+    background: linear-gradient(to right, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.1) 100%);
 }
 
 .hero-image {
@@ -18,27 +40,3 @@
 /* Texto ajustado */
 .hero-text-overlay {
     position: absolute;
-    top: 15%; /* Más arriba */
-    left: 8%;
-    color: #ffffff; /* Blanco sólido */
-    max-width: 500px;
-}
-
-.hero-text-overlay h1 {
-    font-size: 2.8rem; /* Un poco más chicas */
-    font-weight: 900;
-    text-transform: uppercase;
-    line-height: 1.1;
-}
-
-/* Rojo sólido */
-.text-danger { color: #ff0000 !important; }
-
-.btn-custom {
-    background-color: #ff0000;
-    color: white;
-    padding: 10px 25px;
-    border: none;
-    font-weight: bold;
-    margin-top: 15px;
-}
