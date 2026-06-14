@@ -1,34 +1,33 @@
-/* Barra de navegación roja */
+/* Barra de navegación AZUL */
 .navbar {
-    background-color: #dc3545 !important;
-    padding: 1rem 0;
+    background-color: #0056b3 !important; /* Azul profesional */
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .navbar-brand, .nav-link {
     color: white !important;
 }
 
-/* Menú desplegable */
-.dropdown-menu {
-    border: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    border-radius: 8px;
-    margin-top: 5px;
-}
-
-.dropdown-item:hover {
-    background-color: #dc3545;
-    color: white;
-}
-
-/* Banner de inicio */
+/* Banner de la moto */
 .hero-image {
     width: 100%;
     max-height: 400px;
     object-fit: cover;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    margin-bottom: 30px;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
-body { background-color: #f8f9fa; }
+/* Menú desplegable */
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+.dropdown-item:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+body { background-color: #f4f7f6; }
