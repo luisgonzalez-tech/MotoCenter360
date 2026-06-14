@@ -9,7 +9,7 @@
     color: white !important;
 }
 
-/* Estilo para las imágenes de banners (carpeta motos) */
+/* Estilo para la imagen principal */
 .hero-image {
     width: 100%;
     max-height: 400px;
@@ -17,22 +17,7 @@
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     margin-bottom: 30px;
+    display: block;
 }
 
-/* Estilo para las imágenes de refacciones (carpeta refacciones) */
-.refaccion-image {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-/* Tarjetas */
-.card {
-    transition: transform 0.3s ease;
-    border-radius: 15px !important;
-}
-.card:hover {
-    transform: translateY(-5px);
-}
 body { background-color: #f8f9fa; }
