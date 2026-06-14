@@ -14,17 +14,18 @@
             padding: 0;
         }
         
+        /* Contenedor general de la cabecera */
         .header-container {
             background-color: #000;
             padding: 15px 40px 10px 40px;
         }
 
+        /* Fila superior: Logo y buscador */
         .top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
-            position: relative; /* Permite el centrado perfecto del buscador */
+            margin-bottom: 15px; /* Espacio para separar del menú de abajo */
         }
 
         .logo {
@@ -38,27 +39,26 @@
             color: #ff0000;
         }
 
-        /* Buscador perfectamente centrado */
         .search-box {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 400px;
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-end; /* Alinea el buscador a la derecha */
         }
 
         .search-box input {
             width: 100%;
+            max-width: 400px;
             padding: 8px 15px;
             border-radius: 20px;
             border: none;
             outline: none;
         }
 
+        /* Fila inferior: Menú (Zona Gris en tu imagen) */
         .menu-links {
             display: flex;
-            gap: 30px; 
-            justify-content: flex-start;
+            gap: 30px; /* Separación entre los links */
+            justify-content: flex-start; /* Alineados a la izquierda debajo del logo */
         }
 
         .menu-links a {
