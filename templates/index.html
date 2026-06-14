@@ -1,26 +1,37 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<!-- Imagen sola en el contenedor -->
+<!-- Imagen (sin texto encima) -->
 <div class="hero-container">
     <img src="{{ url_for('static', filename='img/motos/banner.jpg') }}" alt="Moto Banner" class="hero-image">
 </div>
 
-<!-- Texto debajo de la imagen -->
-<div class="hero-text-section text-center mb-5">
-    <h1 class="fw-bold">LA FUERZA DETRÁS DE CADA KILÓMETRO</h1>
+<!-- Texto (Debajo, limpio y organizado) -->
+<div class="hero-title-section">
+    <h1>LA FUERZA DETRÁS DE CADA KILÓMETRO</h1>
     <p class="text-muted">MotoCenter360: Expertos en refacciones y servicios</p>
 </div>
 
 <!-- Inventario -->
-<div class="row g-4">
+<div class="row g-4 mt-3">
     <div class="col-md-4">
         <div class="card h-100 shadow-sm border-0 p-3">
             <h5>Aceite</h5>
             <span class="badge bg-success">15 unidades</span>
         </div>
     </div>
-    <!-- Repite para las otras cards -->
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 p-3">
+            <h5>Balatas</h5>
+            <span class="badge bg-success">10 unidades</span>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 p-3">
+            <h5>Filtros</h5>
+            <span class="badge bg-success">8 unidades</span>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
