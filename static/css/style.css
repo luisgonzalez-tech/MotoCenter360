@@ -1,24 +1,33 @@
+/* MANTENEMOS TU NAVBAR TAL CUAL ESTABA */
+.navbar {
+    background-color: #0056b3 !important;
+    padding: 0.8rem 1rem !important;
+}
+
+/* NUEVO: Contenedor limpio para el banner */
 .hero-container {
     width: 100%;
-    margin-bottom: 30px;
-    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .hero-image {
     width: 100%;
+    height: auto;
     max-height: 500px;
     object-fit: cover;
-    border-radius: 15px;
+    border-radius: 10px;
     display: block;
 }
 
-.hero-text-section {
-    margin-top: 15px;
-    color: #333;
+/* El texto va fuera del contenedor de la imagen para no interferir */
+.hero-title-section {
+    text-align: center;
+    padding: 20px 0;
 }
 
-.hero-text-section h1 {
-    font-size: 2rem;
+.hero-title-section h1 {
     font-weight: 800;
     text-transform: uppercase;
+    color: #333;
 }
