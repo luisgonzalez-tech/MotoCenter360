@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-# Ruta absoluta para que Render encuentre la base de datos siempre
+# Ruta absoluta para que el servidor siempre encuentre la base de datos
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'motocenter.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -31,23 +31,35 @@ def refacciones():
 
 @app.route('/refacciones/<categoria>')
 def categoria_productos(categoria):
-    try:
-        cat_limpia = categoria.strip().lower()
-        productos = Producto.query.filter_by(categoria=cat_limpia).all()
-        return render_template('productos.html', categoria=categoria, productos=productos)
-    except Exception as e:
-        return f"ERROR EN LA PAGINA: {str(e)}"
+    # .strip() quita espacios, .lower() pone todo en minúsculas
+    cat_limpia = categoria.strip().lower()
+    
+    # Buscamos en la base de datos
+    productos = Producto.query.filter_by(categoria=cat_limpia).all()
+    
+    # Depuración: Si no encuentra nada, te lo dice en la consola del log de Render
+    if not productos:
+        print(f"DEBUG: No se encontraron productos para la categoría: '{cat_limpia}'")
+    
+    return render_template('productos.html', categoria=categoria, productos=productos)
+
+@app.route('/agregar_carrito/<int:producto_id>', methods=['POST'])
+def agregar_carrito(producto_id):
+    # Aquí irá tu lógica de carrito más adelante
+    return redirect(request.referrer or '/')
 
 @app.route('/cargar-excel')
 def cargar_excel():
     if not os.path.exists('productos.csv'):
-        return "Error: No se encontró el archivo productos.csv"
+        return "Error: No se encuentra productos.csv"
+    
     try:
-        # Borramos datos viejos para asegurar que no haya conflictos
+        # Limpieza: Borramos lo anterior para evitar basura
         db.session.query(Producto).delete()
         
         with open('productos.csv', newline='', encoding='latin-1') as archivo_csv:
             lector = csv.DictReader(archivo_csv)
+            contador = 0
             for fila in lector:
                 p = Producto(
                     categoria=fila['categoria'].strip().lower(),
@@ -57,8 +69,9 @@ def cargar_excel():
                     imagen_url=fila['imagen_url'].strip()
                 )
                 db.session.add(p)
+                contador += 1
             db.session.commit()
-        return "¡Carga exitosa! Base de datos limpia y actualizada."
+        return f"¡Éxito! Se cargaron {contador} productos en la categoría: {', '.join(set(p.categoria for p in Producto.query.all()))}"
     except Exception as e:
         return f"Error al cargar: {str(e)}"
 
