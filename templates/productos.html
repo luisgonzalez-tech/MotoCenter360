@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
-<div style="padding: 40px; color: #fff;">
-    <h1>Categoría: {{ categoria|capitalize }}</h1>
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
+<div style="padding: 40px; color: #fff; max-width: 1200px; margin: 0 auto;">
+    <h1 style="border-bottom: 2px solid #ff0000; padding-bottom: 10px;">Categoría: {{ categoria|capitalize }}</h1>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-top: 30px;">
         {% for p in productos %}
-        <div style="background: #000; border: 1px solid #333; padding: 15px;">
-            <img src="{{ p.imagen_url }}" style="width: 100%; height: 200px; object-fit: contain; background: #fff;">
+        <div style="background: #000; border: 1px solid #333; padding: 15px; border-radius: 8px;">
+            <img src="{{ p.imagen_url }}" style="width: 100%; height: 200px; object-fit: contain; background: #fff; border-radius: 4px;">
             <h3>{{ p.nombre }}</h3>
-            <p style="color: #ff0000;">{{ p.marca }}</p>
-            <p>${{ p.precio }}</p>
+            <p style="color: #ff0000; font-weight: bold;">{{ p.marca }}</p>
+            <p style="font-size: 1.4rem;">${{ p.precio }}</p>
         </div>
         {% else %}
-        <p>No hay productos en esta categoría.</p>
+        <p>No se encontraron productos en esta categoría.</p>
         {% endfor %}
     </div>
 </div>
