@@ -1,24 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-<style>
-    .refacciones-wrapper { padding: 40px; max-width: 1200px; margin: 0 auto; color: #fff; }
-    .refacciones-title { text-align: left; font-size: 3rem; font-weight: 900; margin-bottom: 40px; text-transform: uppercase; }
-    .categorias-grid { display: flex; flex-wrap: wrap; gap: 20px; list-style: none; padding: 0; }
-    .categorias-grid li { font-size: 1.2rem; font-weight: bold; background: #111; padding: 15px 30px; border-radius: 8px; border: 1px solid #333; transition: all 0.3s ease; text-transform: uppercase; }
-    .categorias-grid li a { color: #ccc; text-decoration: none; display: block; }
-    .categorias-grid li:hover { border-color: #ff0000; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2); }
-    .categorias-grid li:hover a { color: #ff0000; }
-</style>
-
-<div class="refacciones-wrapper">
-    <h1 class="refacciones-title">Catálogo de Refacciones</h1>
-    
-    <ul class="categorias-grid">
-        <li><a href="/refacciones/aceites">Aceites</a></li>
-        <li><a href="/refacciones/bujias">Bujías</a></li>
-        <li><a href="/refacciones/amortiguadores">Amortiguadores</a></li>
-        <li><a href="/refacciones/llantas">Llantas</a></li>
-        <li><a href="/refacciones/balatas">Balatas</a></li>
+<div style="padding: 60px 40px; text-align: center; color: #fff;">
+    <h1>Catálogo de Refacciones</h1>
+    <ul style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+        <li><a href="/refacciones/aceites" style="color: #fff; text-decoration: none; padding: 20px; background: #000; border: 1px solid #333; display: block;">Aceites</a></li>
+        <li><a href="/refacciones/bujias" style="color: #fff; text-decoration: none; padding: 20px; background: #000; border: 1px solid #333; display: block;">Bujías</a></li>
+        <li><a href="/refacciones/amortiguadores" style="color: #fff; text-decoration: none; padding: 20px; background: #000; border: 1px solid #333; display: block;">Amortiguadores</a></li>
+        <li><a href="/refacciones/llantas" style="color: #fff; text-decoration: none; padding: 20px; background: #000; border: 1px solid #333; display: block;">Llantas</a></li>
+        <li><a href="/refacciones/balatas" style="color: #fff; text-decoration: none; padding: 20px; background: #000; border: 1px solid #333; display: block;">Balatas</a></li>
     </ul>
 </div>
 {% endblock %}
