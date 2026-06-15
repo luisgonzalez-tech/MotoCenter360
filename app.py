@@ -2,14 +2,13 @@ from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///motocenter.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 class Producto(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    categoria = db.Column(db.String(50), nullable=False) 
+    categoria = db.Column(db.String(50), nullable=False)
     nombre = db.Column(db.String(200), nullable=False)
     marca = db.Column(db.String(100), nullable=False)
     precio = db.Column(db.Float, nullable=False)
@@ -25,7 +24,8 @@ def refacciones():
 
 @app.route('/refacciones/<categoria>')
 def categoria_productos(categoria):
-    productos_filtrados = Producto.query.filter_by(categoria=categoria).all()
+    # Aseguramos que la consulta sea robusta
+    productos_filtrados = Producto.query.filter_by(categoria=categoria.lower()).all()
     return render_template('productos.html', categoria=categoria, productos=productos_filtrados)
 
 if __name__ == '__main__':
