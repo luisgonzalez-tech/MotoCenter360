@@ -16,7 +16,7 @@ class Producto(db.Model):
     precio = db.Column(db.Float, nullable=False)
     imagen_url = db.Column(db.String(500), nullable=False)
 
-# IMPORTANTE: Esto asegura que la base de datos se cree en Render automáticamente
+# Asegura que la base de datos se cree en Render automáticamente
 with app.app_context():
     db.create_all()
 
@@ -36,18 +36,17 @@ def categoria_productos(categoria):
 
 @app.route('/agregar_carrito/<int:producto_id>', methods=['POST'])
 def agregar_carrito(producto_id):
-    # Por ahora, esta ruta solo recibe el clic y te regresa a la misma página.
     print(f"Producto ID {producto_id} fue agregado al carrito")
     return redirect(request.referrer or '/')
 
 @app.route('/cargar-excel')
 def cargar_excel():
-    # Esta ruta lee tu CSV y llena la base de datos automáticamente
     if not os.path.exists('productos.csv'):
         return "Error: No se encontró el archivo productos.csv. Asegúrate de haberlo subido a GitHub con ese nombre exacto."
     
     try:
-        with open('productos.csv', newline='', encoding='utf-8') as archivo_csv:
+        # Se configuró latin-1 para procesar correctamente el formato de Excel
+        with open('productos.csv', newline='', encoding='latin-1') as archivo_csv:
             lector = csv.DictReader(archivo_csv)
             contador = 0
             for fila in lector:
