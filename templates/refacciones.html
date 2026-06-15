@@ -2,21 +2,27 @@
 {% block content %}
 <style>
     .refacciones-wrapper {
-        padding: 40px;
+        padding: 60px 40px;
         max-width: 1200px;
         margin: 0 auto;
         color: #fff;
     }
 
     .refacciones-title {
-        text-align: left;
         font-size: 3rem;
         font-weight: 900;
-        margin-bottom: 40px;
+        margin-bottom: 10px;
         text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
-    /* Sistema flexbox para que las 5 categorías se acomoden solas */
+    .refacciones-subtitle {
+        color: #888;
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+    }
+
+    /* Contenedor Flex para los 5 bloques */
     .categorias-grid {
         display: flex;
         flex-wrap: wrap;
@@ -25,29 +31,31 @@
         padding: 0;
     }
 
-    /* Estilo tipo 'botón oscuro' para cada categoría */
     .categorias-grid li {
-        font-size: 1.2rem;
+        flex: 1;
+        min-width: 200px;
+        font-size: 1.25rem;
         font-weight: bold;
         background: #111;
-        padding: 15px 30px;
+        border: 1px solid #222;
         border-radius: 8px;
-        border: 1px solid #333;
-        transition: all 0.3s ease;
+        text-align: center;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         text-transform: uppercase;
     }
 
     .categorias-grid li a {
-        color: #ccc;
+        color: #eee;
         text-decoration: none;
         display: block;
+        padding: 25px 20px;
     }
 
-    /* Efecto al pasar el mouse */
+    /* Efecto de enfoque deportivo (Rojo Puro) */
     .categorias-grid li:hover {
         border-color: #ff0000;
         transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
+        box-shadow: 0 8px 20px rgba(255, 0, 0, 0.2);
     }
 
     .categorias-grid li:hover a {
@@ -56,7 +64,8 @@
 </style>
 
 <div class="refacciones-wrapper">
-    <h1 class="refacciones-title">Catálogo de Refacciones</h1>
+    <h1 class="refacciones-title">Catálogo de <span style="color: #ff0000;">Refacciones</span></h1>
+    <p class="refacciones-subtitle">Selecciona una categoría para explorar componentes disponibles.</p>
 
     <ul class="categorias-grid">
         <li><a href="{{ url_for('categoria_productos', categoria='aceites') }}">Aceites</a></li>
