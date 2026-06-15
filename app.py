@@ -1,10 +1,12 @@
 import csv
 import os
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///motocenter.db'
+# Usamos una ruta absoluta para evitar problemas en servidores remotos
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'motocenter.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -27,13 +29,11 @@ def inicio():
 def refacciones():
     return render_template('refacciones.html')
 
+# Ruta simplificada para evitar errores de Build
 @app.route('/refacciones/<categoria>')
 def categoria_productos(categoria):
-    # Limpiamos la entrada para evitar errores de búsqueda
     cat_limpia = categoria.strip().lower()
-    # Buscamos los productos
     productos = Producto.query.filter_by(categoria=cat_limpia).all()
-    # Enviamos a la plantilla. Si 'productos' está vacío, la plantilla debe saber manejarlo.
     return render_template('productos.html', categoria=categoria, productos=productos)
 
 @app.route('/cargar-excel')
@@ -41,6 +41,9 @@ def cargar_excel():
     if not os.path.exists('productos.csv'):
         return "Error: No se encontró productos.csv"
     try:
+        # Limpieza rápida de registros previos
+        db.session.query(Producto).delete()
+        
         with open('productos.csv', newline='', encoding='latin-1') as archivo_csv:
             lector = csv.DictReader(archivo_csv)
             for fila in lector:
@@ -53,9 +56,9 @@ def cargar_excel():
                 )
                 db.session.add(p)
             db.session.commit()
-        return "¡Carga exitosa!"
+        return "¡Carga exitosa! Base de datos actualizada."
     except Exception as e:
-        return f"Error: {e}"
+        return f"Error al cargar: {str(e)}"
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
