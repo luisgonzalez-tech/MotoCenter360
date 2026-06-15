@@ -5,131 +5,63 @@
         max-width: 1200px;
         margin: 40px auto;
         padding: 20px;
-        color: #fff;
+        color: #ffffff;
     }
-
     .titulo-categoria {
         font-size: 2.5rem;
         text-transform: uppercase;
         margin-bottom: 30px;
-        border-bottom: 2px solid #ff0000;
+        border-bottom: 2px solid #ff0000; /* Línea roja */
         padding-bottom: 10px;
-        font-weight: 900;
     }
-
     .productos-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 25px;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
     }
-
-    /* Tarjetas de Producto estilo Premium Oscuro */
     .producto-card {
-        background: #0d0d0d;
-        border: 1px solid #1a1a1a;
+        background: #000000; /* Fondo negro puro */
+        border: 1px solid #333;
+        padding: 15px;
         border-radius: 8px;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        transition: all 0.3s ease;
-    }
-
-    .producto-card:hover {
-        border-color: #ff0000;
-        box-shadow: 0 5px 15px rgba(255, 0, 0, 0.15);
-    }
-
-    .producto-img-box {
-        width: 100%;
-        height: 180px;
-        background: #000;
-        border-radius: 6px;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 15px;
-    }
-
-    .producto-img-box img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-    }
-
-    .producto-marca {
-        font-size: 0.85rem;
-        color: #ff0000;
-        text-transform: uppercase;
-        font-weight: bold;
-        letter-spacing: 1px;
-        margin-bottom: 5px;
-    }
-
-    .producto-nombre {
-        font-size: 0.95rem;
-        color: #fff;
-        margin-bottom: 15px;
-        line-height: 1.4;
-        height: 40px;
-        overflow: hidden;
-    }
-
-    .producto-precio {
-        font-size: 1.4rem;
-        font-weight: bold;
-        color: #fff;
-        margin-bottom: 15px;
-    }
-
-    .btn-comprar {
-        background: #ff0000;
-        color: #fff;
-        border: none;
-        padding: 12px;
-        font-weight: bold;
-        text-transform: uppercase;
-        border-radius: 4px;
-        cursor: pointer;
-        width: 100%;
-        transition: background 0.2s;
-    }
-
-    .btn-comprar:hover {
-        background: #cc0000;
-    }
-
-    .sin-productos {
-        color: #666;
-        font-style: italic;
-        grid-column: 1 / -1;
         text-align: center;
-        margin-top: 40px;
-        font-size: 1.1rem;
+    }
+    .producto-card img {
+        max-width: 100%;
+        height: 200px;
+        object-fit: contain;
+        margin-bottom: 15px;
+        background-color: #fff; /* Fondo blanco para que la imagen resalte */
+        border-radius: 4px;
+    }
+    .producto-marca { color: #ff0000; font-weight: bold; } /* Marca en rojo sólido */
+    .producto-precio { font-size: 1.5rem; font-weight: bold; margin: 10px 0; color: #ffffff;}
+    .btn-comprar {
+        background: #ff0000; /* Botón rojo sólido */
+        color: #ffffff; 
+        border: none; 
+        padding: 10px 20px;
+        width: 100%; 
+        font-weight: bold; 
+        cursor: pointer; 
+        border-radius: 4px;
     }
 </style>
 
 <div class="catalogo-container">
-    <h1 class="titulo-categoria">Catálogo / <span style="color: #ff0000;">{{ categoria }}</span></h1>
+    <h1 class="titulo-categoria">Refacciones: <span style="color: #ff0000;">{{ categoria }}</span></h1>
     
     <div class="productos-grid">
         {% for p in productos %}
         <div class="producto-card">
-            <div>
-                <div class="producto-img-box">
-                    <img src="{{ p.imagen_url }}" alt="{{ p.nombre }}">
-                </div>
-                <p class="producto-marca">{{ p.marca }}</p>
-                <h3 class="producto-nombre">{{ p.nombre }}</h3>
-            </div>
-            <div>
-                <div class="producto-precio">${{ p.precio }}</div>
-                <button class="btn-comprar">Ver Detalles</button>
-            </div>
+            <img src="{{ p.imagen_url }}" alt="{{ p.nombre }}">
+            <p class="producto-marca">{{ p.marca }}</p>
+            <h3>{{ p.nombre }}</h3>
+            <p class="producto-precio">${{ p.precio }}</p>
+            <button class="btn-comprar">Ver Detalles</button>
         </div>
         {% else %}
-        <p class="sin-productos">Aún no hay refacciones registradas en la categoría {{ categoria }}.</p>
+        <p>Aún no hay productos subidos en esta categoría.</p>
         {% endfor %}
     </div>
 </div>
