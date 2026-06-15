@@ -16,24 +16,41 @@
         text-transform: uppercase;
     }
 
-    /* Sistema de 4 columnas */
+    /* Sistema flexbox para que las 5 categorías se acomoden solas */
     .categorias-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        display: flex;
+        flex-wrap: wrap;
         gap: 20px;
         list-style: none;
         padding: 0;
     }
 
+    /* Estilo tipo 'botón oscuro' para cada categoría */
     .categorias-grid li {
-        font-size: 1.1rem;
-        margin-bottom: 15px;
-        color: #ccc;
-        cursor: pointer;
-        transition: 0.3s;
+        font-size: 1.2rem;
+        font-weight: bold;
+        background: #111;
+        padding: 15px 30px;
+        border-radius: 8px;
+        border: 1px solid #333;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
     }
 
+    .categorias-grid li a {
+        color: #ccc;
+        text-decoration: none;
+        display: block;
+    }
+
+    /* Efecto al pasar el mouse */
     .categorias-grid li:hover {
+        border-color: #ff0000;
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
+    }
+
+    .categorias-grid li:hover a {
         color: #ff0000;
     }
 </style>
@@ -42,45 +59,11 @@
     <h1 class="refacciones-title">Catálogo de Refacciones</h1>
 
     <ul class="categorias-grid">
-        <!-- Columna 1 -->
-        <li>• Aceites</li>
-        <li>• Bujías</li>
-        <li>• Cascos</li>
-        <li>• Filtros</li>
-        <li>• Luces</li>
-        <li>• Parrillas y Defensas</li>
-        <li>• Rines, Aros, Ruedas</li>
-        <li>• Sistema Enfriamiento</li>
-
-        <!-- Columna 2 -->
-        <li>• Amortiguadores</li>
-        <li>• Cables</li>
-        <li>• Embragues</li>
-        <li>• Frenos</li>
-        <li>• Manubrios y Mandos</li>
-        <li>• Posapies/Paradores</li>
-        <li>• Ruedas</li>
-        <li>• Sistema Transmisión</li>
-
-        <!-- Columna 3 -->
-        <li>• Asientos</li>
-        <li>• Cámaras</li>
-        <li>• Escape/Silenciador</li>
-        <li>• Herramientas</li>
-        <li>• Motores y sus Partes</li>
-        <li>• Productos Químicos</li>
-        <li>• Sistema Combustible</li>
-        <li>• Soportes</li>
-
-        <!-- Columna 4 -->
-        <li>• Baterías</li>
-        <li>• Carrocería/Plásticos</li>
-        <li>• Espejos</li>
-        <li>• Llantas</li>
-        <li>• Parches</li>
-        <li>• Puños</li>
-        <li>• Sistema Eléctrico</li>
-        <li>• Velocímetros</li>
+        <li><a href="{{ url_for('categoria_productos', categoria='aceites') }}">Aceites</a></li>
+        <li><a href="{{ url_for('categoria_productos', categoria='bujias') }}">Bujías</a></li>
+        <li><a href="{{ url_for('categoria_productos', categoria='amortiguadores') }}">Amortiguadores</a></li>
+        <li><a href="{{ url_for('categoria_productos', categoria='llantas') }}">Llantas</a></li>
+        <li><a href="{{ url_for('categoria_productos', categoria='balatas') }}">Balatas</a></li>
     </ul>
 </div>
 {% endblock %}
