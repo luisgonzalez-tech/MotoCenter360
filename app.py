@@ -16,7 +16,6 @@ class Producto(db.Model):
     precio = db.Column(db.Float, nullable=False)
     imagen_url = db.Column(db.String(500), nullable=False)
 
-# Asegura que la base de datos se cree en Render automáticamente
 with app.app_context():
     db.create_all()
 
@@ -30,39 +29,33 @@ def refacciones():
 
 @app.route('/refacciones/<categoria>')
 def categoria_productos(categoria):
-    # Convertimos a minúsculas para asegurar que coincida con la base de datos
-    productos_filtrados = Producto.query.filter_by(categoria=categoria.lower()).all()
-    return render_template('productos.html', categoria=categoria, productos=productos_filtrados)
-
-@app.route('/agregar_carrito/<int:producto_id>', methods=['POST'])
-def agregar_carrito(producto_id):
-    print(f"Producto ID {producto_id} fue agregado al carrito")
-    return redirect(request.referrer or '/')
+    # Limpiamos la entrada para evitar errores de búsqueda
+    cat_limpia = categoria.strip().lower()
+    # Buscamos los productos
+    productos = Producto.query.filter_by(categoria=cat_limpia).all()
+    # Enviamos a la plantilla. Si 'productos' está vacío, la plantilla debe saber manejarlo.
+    return render_template('productos.html', categoria=categoria, productos=productos)
 
 @app.route('/cargar-excel')
 def cargar_excel():
     if not os.path.exists('productos.csv'):
-        return "Error: No se encontró el archivo productos.csv. Asegúrate de haberlo subido a GitHub con ese nombre exacto."
-    
+        return "Error: No se encontró productos.csv"
     try:
-        # Se configuró latin-1 para procesar correctamente el formato de Excel
         with open('productos.csv', newline='', encoding='latin-1') as archivo_csv:
             lector = csv.DictReader(archivo_csv)
-            contador = 0
             for fila in lector:
-                nuevo_producto = Producto(
+                p = Producto(
                     categoria=fila['categoria'].strip().lower(),
                     nombre=fila['nombre'].strip(),
                     marca=fila['marca'].strip(),
                     precio=float(fila['precio']),
                     imagen_url=fila['imagen_url'].strip()
                 )
-                db.session.add(nuevo_producto)
-                contador += 1
+                db.session.add(p)
             db.session.commit()
-        return f"¡Éxito total! Se cargaron {contador} refacciones a tu base de datos."
+        return "¡Carga exitosa!"
     except Exception as e:
-        return f"Ocurrió un error al cargar: {e}"
+        return f"Error: {e}"
 
 if __name__ == '__main__':
     app.run(debug=True)
