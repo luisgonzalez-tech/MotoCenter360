@@ -1,67 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
-<style>
-    .catalogo-container {
-        max-width: 1200px;
-        margin: 40px auto;
-        padding: 20px;
-        color: #ffffff;
-    }
-    .titulo-categoria {
-        font-size: 2.5rem;
-        text-transform: uppercase;
-        margin-bottom: 30px;
-        border-bottom: 2px solid #ff0000;
-        padding-bottom: 10px;
-    }
-    .productos-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 20px;
-    }
-    .producto-card {
-        background: #000000;
-        border: 1px solid #333;
-        padding: 15px;
-        border-radius: 8px;
-        text-align: center;
-    }
-    .producto-card img {
-        max-width: 100%;
-        height: 200px;
-        object-fit: contain;
-        margin-bottom: 15px;
-        background-color: #fff;
-        border-radius: 4px;
-    }
-    .producto-marca { color: #ff0000; font-weight: bold; }
-    .producto-precio { font-size: 1.5rem; font-weight: bold; margin: 10px 0; color: #ffffff;}
-    .btn-comprar {
-        background: #ff0000;
-        color: #ffffff; 
-        border: none; 
-        padding: 10px 20px;
-        width: 100%; 
-        font-weight: bold; 
-        cursor: pointer; 
-        border-radius: 4px;
-    }
-</style>
-
-<div class="catalogo-container">
-    <h1 class="titulo-categoria">Refacciones: <span style="color: #ff0000;">{{ categoria }}</span></h1>
-    
-    <div class="productos-grid">
+<div style="padding: 40px; color: #fff;">
+    <h1>Categoría: {{ categoria|capitalize }}</h1>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
         {% for p in productos %}
-        <div class="producto-card">
-            <img src="{{ p.imagen_url }}" alt="{{ p.nombre }}">
-            <p class="producto-marca">{{ p.marca }}</p>
+        <div style="background: #000; border: 1px solid #333; padding: 15px;">
+            <img src="{{ p.imagen_url }}" style="width: 100%; height: 200px; object-fit: contain; background: #fff;">
             <h3>{{ p.nombre }}</h3>
-            <p class="producto-precio">${{ p.precio }}</p>
-            <button class="btn-comprar">Ver Detalles</button>
+            <p style="color: #ff0000;">{{ p.marca }}</p>
+            <p>${{ p.precio }}</p>
         </div>
         {% else %}
-        <p>Aún no hay productos subidos en esta categoría.</p>
+        <p>No hay productos en esta categoría.</p>
         {% endfor %}
     </div>
 </div>
