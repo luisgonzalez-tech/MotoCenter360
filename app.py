@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-# Usamos una ruta absoluta para evitar problemas en servidores remotos
+# Ruta absoluta para que Render no se pierda buscando la base de datos
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'motocenter.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -29,7 +29,7 @@ def inicio():
 def refacciones():
     return render_template('refacciones.html')
 
-# Ruta simplificada para evitar errores de Build
+# RUTA CORREGIDA: Asegúrate de que el nombre de la función sea 'categoria_productos'
 @app.route('/refacciones/<categoria>')
 def categoria_productos(categoria):
     cat_limpia = categoria.strip().lower()
@@ -41,7 +41,7 @@ def cargar_excel():
     if not os.path.exists('productos.csv'):
         return "Error: No se encontró productos.csv"
     try:
-        # Limpieza rápida de registros previos
+        # Borramos datos viejos sin borrar el archivo, para no usar Shell
         db.session.query(Producto).delete()
         
         with open('productos.csv', newline='', encoding='latin-1') as archivo_csv:
