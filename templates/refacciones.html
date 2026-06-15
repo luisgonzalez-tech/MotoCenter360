@@ -29,7 +29,7 @@
         width: 200px;
         font-size: 1.2rem;
         font-weight: bold;
-        background: #000000; /* Fondo negro puro */
+        background: #000000;
         border: 1px solid #333;
         border-radius: 8px;
         text-align: center;
@@ -38,20 +38,20 @@
     }
 
     .categorias-grid li a {
-        color: #ffffff; /* Letras blancas */
+        color: #ffffff;
         text-decoration: none;
         display: block;
         padding: 20px;
     }
 
     .categorias-grid li:hover {
-        border-color: #ff0000; /* Borde rojo al pasar el mouse */
+        border-color: #ff0000;
         transform: translateY(-5px);
         box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
     }
 
     .categorias-grid li:hover a {
-        color: #ff0000; /* Letras rojas al pasar el mouse */
+        color: #ff0000;
     }
 </style>
 
@@ -59,11 +59,11 @@
     <h1 class="refacciones-title">Catálogo de <span style="color: #ff0000;">Refacciones</span></h1>
 
     <ul class="categorias-grid">
-        <li><a href="{{ url_for('categoria_productos', categoria='aceites') }}">Aceites</a></li>
-        <li><a href="{{ url_for('categoria_productos', categoria='bujias') }}">Bujías</a></li>
-        <li><a href="{{ url_for('categoria_productos', categoria='amortiguadores') }}">Amortiguadores</a></li>
-        <li><a href="{{ url_for('categoria_productos', categoria='llantas') }}">Llantas</a></li>
-        <li><a href="{{ url_for('categoria_productos', categoria='balatas') }}">Balatas</a></li>
+        <li><a href="/refacciones/aceites">Aceites</a></li>
+        <li><a href="/refacciones/bujias">Bujías</a></li>
+        <li><a href="/refacciones/amortiguadores">Amortiguadores</a></li>
+        <li><a href="/refacciones/llantas">Llantas</a></li>
+        <li><a href="/refacciones/balatas">Balatas</a></li>
     </ul>
 </div>
 {% endblock %}
