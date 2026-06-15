@@ -1,86 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-<style>
-    .refacciones-wrapper {
-        padding: 40px;
-        max-width: 1200px;
-        margin: 0 auto;
-        color: #fff;
-    }
-
-    .refacciones-title {
-        text-align: left;
-        font-size: 3rem;
-        font-weight: 900;
-        margin-bottom: 40px;
-        text-transform: uppercase;
-    }
-
-    /* Sistema de 4 columnas */
-    .categorias-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-        list-style: none;
-        padding: 0;
-    }
-
-    .categorias-grid li {
-        font-size: 1.1rem;
-        margin-bottom: 15px;
-        color: #ccc;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    .categorias-grid li:hover {
-        color: #ff0000;
-    }
-</style>
-
-<div class="refacciones-wrapper">
-    <h1 class="refacciones-title">Catálogo de Refacciones</h1>
-
-    <ul class="categorias-grid">
-        <!-- Columna 1 -->
-        <li>• Aceites</li>
-        <li>• Bujías</li>
-        <li>• Cascos</li>
-        <li>• Filtros</li>
-        <li>• Luces</li>
-        <li>• Parrillas y Defensas</li>
-        <li>• Rines, Aros, Ruedas</li>
-        <li>• Sistema Enfriamiento</li>
-
-        <!-- Columna 2 -->
-        <li>• Amortiguadores</li>
-        <li>• Cables</li>
-        <li>• Embragues</li>
-        <li>• Frenos</li>
-        <li>• Manubrios y Mandos</li>
-        <li>• Posapies/Paradores</li>
-        <li>• Ruedas</li>
-        <li>• Sistema Transmisión</li>
-
-        <!-- Columna 3 -->
-        <li>• Asientos</li>
-        <li>• Cámaras</li>
-        <li>• Escape/Silenciador</li>
-        <li>• Herramientas</li>
-        <li>• Motores y sus Partes</li>
-        <li>• Productos Químicos</li>
-        <li>• Sistema Combustible</li>
-        <li>• Soportes</li>
-
-        <!-- Columna 4 -->
-        <li>• Baterías</li>
-        <li>• Carrocería/Plásticos</li>
-        <li>• Espejos</li>
-        <li>• Llantas</li>
-        <li>• Parches</li>
-        <li>• Puños</li>
-        <li>• Sistema Eléctrico</li>
-        <li>• Velocímetros</li>
+<div style="padding: 40px; color: #fff;">
+    <h1>Catálogo de Refacciones</h1>
+    <ul>
+        <li><a href="/refacciones/aceites" style="color: #fff;">Aceites</a></li>
+        <li><a href="/refacciones/bujias" style="color: #fff;">Bujías</a></li>
+        <li><a href="/refacciones/amortiguadores" style="color: #fff;">Amortiguadores</a></li>
+        <li><a href="/refacciones/llantas" style="color: #fff;">Llantas</a></li>
+        <li><a href="/refacciones/balatas" style="color: #fff;">Balatas</a></li>
     </ul>
 </div>
 {% endblock %}
