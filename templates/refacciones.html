@@ -14,10 +14,8 @@
         margin-bottom: 40px;
         text-transform: uppercase;
         text-align: center;
-        letter-spacing: 1px;
     }
 
-    /* Grid responsivo para los 5 botones deportivos */
     .categorias-grid {
         display: flex;
         flex-wrap: wrap;
@@ -28,33 +26,32 @@
     }
 
     .categorias-grid li {
-        width: 220px;
+        width: 200px;
         font-size: 1.2rem;
         font-weight: bold;
-        background: #111;
+        background: #000000; /* Fondo negro puro */
         border: 1px solid #333;
         border-radius: 8px;
         text-align: center;
-        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition: all 0.3s ease;
         text-transform: uppercase;
     }
 
     .categorias-grid li a {
-        color: #fff;
+        color: #ffffff; /* Letras blancas */
         text-decoration: none;
         display: block;
-        padding: 22px;
+        padding: 20px;
     }
 
-    /* Enfoque deportivo Rojo Puro en Hover */
     .categorias-grid li:hover {
-        border-color: #ff0000;
+        border-color: #ff0000; /* Borde rojo al pasar el mouse */
         transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+        box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
     }
 
     .categorias-grid li:hover a {
-        color: #ff0000;
+        color: #ff0000; /* Letras rojas al pasar el mouse */
     }
 </style>
 
