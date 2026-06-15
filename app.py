@@ -24,7 +24,7 @@ def refacciones():
 
 @app.route('/refacciones/<categoria>')
 def categoria_productos(categoria):
-    # Aseguramos que la consulta sea robusta
+    # Convertimos a minúsculas para asegurar que coincida con la base de datos
     productos_filtrados = Producto.query.filter_by(categoria=categoria.lower()).all()
     return render_template('productos.html', categoria=categoria, productos=productos_filtrados)
 
