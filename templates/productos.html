@@ -1,27 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
 <div style="padding: 40px; color: white;">
-    <h1 style="text-align: center;">Resultados para: {{ categoria.capitalize() }}</h1>
-    
-    {% if productos %}
-        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+    <h1>Resultados para: {{ categoria.capitalize() }}</h1>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
         {% for p in productos %}
-            <div style="border: 1px solid #333; padding: 15px; width: 220px; text-align: center; background: #111; border-radius: 8px;">
-                <img src="{{ p.imagen_url }}" style="width: 150px; height: 150px; object-fit: contain; margin-bottom: 10px;">
-                <h3 style="font-size: 16px; height: 40px; overflow: hidden;">{{ p.nombre }}</h3>
-                <p style="color: #ccc; font-size: 14px;">Marca: {{ p.marca }}</p>
-                <p style="font-weight: bold; font-size: 18px; color: #f90;">${{ "%.2f"|format(p.precio) }}</p>
-                
+            <div style="border: 1px solid #444; padding: 20px; width: 200px;">
+                <img src="{{ p.imagen_url }}" style="width: 100%;">
+                <h3>{{ p.nombre }}</h3>
+                <p>${{ p.precio }}</p>
                 <form action="{{ url_for('agregar_carrito', producto_id=p.id) }}" method="POST">
-                    <button type="submit" style="background: #f90; color: #000; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; border-radius: 4px; width: 100%;">
-                        Agregar
+                    <button type="submit" style="background:orange; padding:10px; cursor:pointer;">
+                        Agregar al Carrito
                     </button>
                 </form>
             </div>
         {% endfor %}
-        </div>
-    {% else %}
-        <p style="text-align: center;">No se encontraron productos en esta categoría.</p>
-    {% endif %}
+    </div>
 </div>
 {% endblock %}
