@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-# Ruta absoluta para que Render no se pierda buscando la base de datos
+# Ruta absoluta para que Render encuentre la base de datos siempre
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'motocenter.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -29,19 +29,21 @@ def inicio():
 def refacciones():
     return render_template('refacciones.html')
 
-# RUTA CORREGIDA: Asegúrate de que el nombre de la función sea 'categoria_productos'
 @app.route('/refacciones/<categoria>')
 def categoria_productos(categoria):
-    cat_limpia = categoria.strip().lower()
-    productos = Producto.query.filter_by(categoria=cat_limpia).all()
-    return render_template('productos.html', categoria=categoria, productos=productos)
+    try:
+        cat_limpia = categoria.strip().lower()
+        productos = Producto.query.filter_by(categoria=cat_limpia).all()
+        return render_template('productos.html', categoria=categoria, productos=productos)
+    except Exception as e:
+        return f"ERROR EN LA PAGINA: {str(e)}"
 
 @app.route('/cargar-excel')
 def cargar_excel():
     if not os.path.exists('productos.csv'):
-        return "Error: No se encontró productos.csv"
+        return "Error: No se encontró el archivo productos.csv"
     try:
-        # Borramos datos viejos sin borrar el archivo, para no usar Shell
+        # Borramos datos viejos para asegurar que no haya conflictos
         db.session.query(Producto).delete()
         
         with open('productos.csv', newline='', encoding='latin-1') as archivo_csv:
@@ -56,7 +58,7 @@ def cargar_excel():
                 )
                 db.session.add(p)
             db.session.commit()
-        return "¡Carga exitosa! Base de datos actualizada."
+        return "¡Carga exitosa! Base de datos limpia y actualizada."
     except Exception as e:
         return f"Error al cargar: {str(e)}"
 
