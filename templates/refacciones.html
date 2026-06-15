@@ -11,51 +11,43 @@
     .refacciones-title {
         font-size: 3rem;
         font-weight: 900;
-        margin-bottom: 10px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    .refacciones-subtitle {
-        color: #888;
-        font-size: 1.1rem;
         margin-bottom: 40px;
+        text-transform: uppercase;
+        text-align: center;
     }
 
-    /* Contenedor Flex para los 5 bloques */
     .categorias-grid {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         gap: 20px;
         list-style: none;
         padding: 0;
     }
 
     .categorias-grid li {
-        flex: 1;
-        min-width: 200px;
-        font-size: 1.25rem;
+        width: 200px;
+        font-size: 1.2rem;
         font-weight: bold;
         background: #111;
-        border: 1px solid #222;
+        border: 1px solid #333;
         border-radius: 8px;
         text-align: center;
-        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition: all 0.3s ease;
         text-transform: uppercase;
     }
 
     .categorias-grid li a {
-        color: #eee;
+        color: #fff;
         text-decoration: none;
         display: block;
-        padding: 25px 20px;
+        padding: 20px;
     }
 
-    /* Efecto de enfoque deportivo (Rojo Puro) */
     .categorias-grid li:hover {
         border-color: #ff0000;
         transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(255, 0, 0, 0.2);
+        box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
     }
 
     .categorias-grid li:hover a {
@@ -65,7 +57,6 @@
 
 <div class="refacciones-wrapper">
     <h1 class="refacciones-title">Catálogo de <span style="color: #ff0000;">Refacciones</span></h1>
-    <p class="refacciones-subtitle">Selecciona una categoría para explorar componentes disponibles.</p>
 
     <ul class="categorias-grid">
         <li><a href="{{ url_for('categoria_productos', categoria='aceites') }}">Aceites</a></li>
