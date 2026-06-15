@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="padding: 40px; color: white;">
+    <h1>Resultados para: {{ categoria }}</h1>
+    
+    {% if productos %}
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+        {% for p in productos %}
+            <div style="border: 1px solid #444; padding: 20px; width: 200px;">
+                <img src="{{ p.imagen_url }}" style="width: 100%; height: auto;">
+                <h3>{{ p.nombre }}</h3>
+                <p>Marca: {{ p.marca }}</p>
+                <p>Precio: ${{ p.precio }}</p>
+            </div>
+        {% endfor %}
+        </div>
+    {% else %}
+        <p>No hay productos en esta categoría.</p>
+    {% endif %}
+</div>
+{% endblock %}
