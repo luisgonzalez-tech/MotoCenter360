@@ -1,20 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
 <div style="padding: 40px; color: white;">
-    <h1>Resultados para: {{ categoria.capitalize() }}</h1>
-    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+    <h1 style="text-align: center;">Resultados para: {{ categoria.capitalize() }}</h1>
+    
+    {% if productos %}
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
         {% for p in productos %}
-            <div style="border: 1px solid #444; padding: 20px; width: 200px;">
-                <img src="{{ p.imagen_url }}" style="width: 100%;">
+            <div style="border: 1px solid #444; padding: 20px; width: 220px; text-align: center; background: #111;">
+                <img src="{{ p.imagen_url }}" style="width: 150px; height: 150px; object-fit: contain;">
                 <h3>{{ p.nombre }}</h3>
-                <p>${{ p.precio }}</p>
+                <p>Marca: {{ p.marca }}</p>
+                <p style="font-weight: bold; color: #f90;">${{ "%.2f"|format(p.precio) }}</p>
+                
                 <form action="{{ url_for('agregar_carrito', producto_id=p.id) }}" method="POST">
-                    <button type="submit" style="background:orange; padding:10px; cursor:pointer;">
-                        Agregar al Carrito
+                    <button type="submit" style="background: #f90; border: none; padding: 10px; cursor: pointer; width: 100%; font-weight: bold;">
+                        Agregar al carrito
                     </button>
                 </form>
             </div>
         {% endfor %}
-    </div>
+        </div>
+    {% else %}
+        <p style="text-align: center;">No se encontraron productos en esta categoría.</p>
+    {% endif %}
 </div>
 {% endblock %}
