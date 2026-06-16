@@ -1,26 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
 <style>
-    /* Estilos del botón de regreso */
-    .btn-volver {
-        display: inline-block;
-        margin-bottom: 20px;
-        padding: 10px 20px;
-        background-color: #444;
-        color: white;
-        text-decoration: none;
-        border-radius: 4px;
-        font-size: 14px;
+    /* Contenedor principal */
+    .contenedor-pagina { padding: 40px; color: white; text-align: center; }
+    
+    /* Botón de regreso */
+    .btn-volver { 
+        display: inline-block; 
+        margin-bottom: 25px; 
+        padding: 12px 25px; 
+        background-color: #444; 
+        color: white; 
+        text-decoration: none; 
+        border-radius: 5px; 
+        font-weight: bold;
         border: 1px solid #666;
     }
     .btn-volver:hover { background-color: #555; }
 
-    /* Estilos del Grid (Alineación perfecta) */
+    /* Grid Profesional */
     .catalogo-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
         gap: 20px;
-        padding: 40px;
         max-width: 1200px;
         margin: auto;
     }
@@ -32,10 +34,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        text-align: center;
     }
     .imagen-contenedor {
-        background: white; /* Fondo blanco profesional */
+        background: white;
         width: 100%;
         height: 180px;
         display: flex;
@@ -44,11 +45,7 @@
         border-radius: 4px;
         margin-bottom: 15px;
     }
-    .imagen-contenedor img {
-        max-width: 90%;
-        max-height: 160px;
-        object-fit: contain;
-    }
+    .imagen-contenedor img { max-width: 90%; max-height: 160px; object-fit: contain; }
     .btn-agregar {
         background: #f90;
         color: #000;
@@ -62,7 +59,8 @@
     }
 </style>
 
-<div style="color: white; padding: 20px; text-align: center;">
+<div class="contenedor-pagina">
+    <!-- Aquí está tu botón de regreso -->
     <a href="{{ url_for('refacciones') }}" class="btn-volver">← Volver a categorías</a>
     
     <h1>Resultados para: {{ categoria.capitalize() }}</h1>
@@ -75,8 +73,9 @@
                 </div>
                 <h3 style="font-size: 15px; height: 40px; margin: 10px 0;">{{ p.nombre }}</h3>
                 <p style="font-size: 14px; color: #888;">Marca: {{ p.marca }}</p>
-                <p style="font-size: 18px; font-weight: bold; color: #f90; margin: 10px 0;">${{ "%.2f"|format(p.precio) }}</p>
-                
+                <p style="font-size: 18px; font-weight: bold; color: #f90; margin: 10px 0;">
+                    ${{ "%.2f"|format(p.precio) }}
+                </p>
                 <form action="{{ url_for('agregar_carrito', producto_id=p.id) }}" method="POST" style="width: 100%;">
                     <button type="submit" class="btn-agregar">Agregar al Carrito</button>
                 </form>
