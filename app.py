@@ -56,13 +56,13 @@ def categoria_productos(categoria):
     productos = Producto.query.filter(Producto.categoria.ilike(cat_buscada)).all()
     return render_template('productos.html', categoria=categoria, productos=productos)
 
-# --- RUTA DEL CARRITO (La que faltaba y causaba el Error 500) ---
+# --- ESTA ES LA RUTA EXACTA QUE TE PIDE EL LOG EN LA IMAGEN_E9C5A0.PNG ---
 @app.route('/agregar_carrito/<int:producto_id>', methods=['POST'])
 def agregar_carrito(producto_id):
-    # Redirecciona a la página de donde venía el usuario
+    # Por ahora solo recarga la página de forma segura
     return redirect(request.referrer or url_for('refacciones'))
 
-# --- RUTA DE CONTROL DE BASE DE DATOS ---
+# --- CONTROL DE EXCEL ---
 @app.route('/cargar-excel')
 def cargar_excel():
     try:
@@ -82,7 +82,6 @@ def cargar_excel():
     except Exception as e:
         return f"Error al cargar: {e}"
 
-# --- CONFIGURACIÓN PARA RENDER ---
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
