@@ -14,18 +14,16 @@
             padding: 0;
         }
         
-        /* Contenedor general de la cabecera */
         .header-container {
             background-color: #000;
             padding: 15px 40px 10px 40px;
         }
 
-        /* Fila superior: Logo y buscador */
         .top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px; /* Espacio para separar del menú de abajo */
+            margin-bottom: 15px;
         }
 
         .logo {
@@ -39,10 +37,11 @@
             color: #ff0000;
         }
 
+        /* Ahora es un formulario, no solo un div */
         .search-box {
             flex-grow: 1;
             display: flex;
-            justify-content: flex-end; /* Alinea el buscador a la derecha */
+            justify-content: flex-end;
         }
 
         .search-box input {
@@ -52,13 +51,15 @@
             border-radius: 20px;
             border: none;
             outline: none;
+            background-color: #fff;
+            color: #000;
         }
 
-        /* Fila inferior: Menú (Zona Gris en tu imagen) */
         .menu-links {
             display: flex;
-            gap: 30px; /* Separación entre los links */
-            justify-content: flex-start; /* Alineados a la izquierda debajo del logo */
+            gap: 30px;
+            justify-content: flex-start;
+            align-items: center;
         }
 
         .menu-links a {
@@ -72,22 +73,33 @@
         .menu-links a:hover {
             color: #fff;
         }
+        
+        /* Estilo especial para resaltar el carrito */
+        .btn-carrito-nav {
+            background-color: #222;
+            padding: 5px 15px;
+            border-radius: 15px;
+            border: 1px solid #ff0000;
+        }
     </style>
 </head>
 <body>
     <div class="header-container">
         <div class="top-bar">
             <a href="/" class="logo">MotoCenter<span>360</span></a>
-            <div class="search-box">
-                <input type="text" placeholder="Hola, ¿Qué estás buscando?">
-            </div>
+            
+            <form action="{{ url_for('buscar') }}" method="GET" class="search-box">
+                <input type="text" name="q" placeholder="Buscar motos, cascos, aceites...">
+            </form>
+            
         </div>
         <div class="menu-links">
             <a href="/">INICIO</a>
             <a href="{{ url_for('categoria_productos', categoria='motocicleta') }}">MOTOCICLETA</a>
             <a href="/refacciones">REFACCIONES</a>
-            <a href="#">ACCESORIOS</a>
+            <a href="{{ url_for('categoria_productos', categoria='accesorios') }}">ACCESORIOS</a>
             <a href="#">TALLER</a>
+            <a href="{{ url_for('ver_carrito') }}" class="btn-carrito-nav">🛒 CARRITO ({{ session.get('carrito', [])|length }})</a>
         </div>
     </div>
 
