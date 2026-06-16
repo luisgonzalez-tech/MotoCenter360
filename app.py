@@ -1,9 +1,12 @@
 import csv
 import os
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+# Clave secreta necesaria para que funcione el carrito de compras
+app.secret_key = 'motocenter360_secreto_super_seguro'
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'motocenter.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -17,7 +20,6 @@ class Producto(db.Model):
     precio = db.Column(db.Float, nullable=False)
     imagen_url = db.Column(db.String(500), nullable=False)
 
-# --- AUTO-CARGA AL INICIAR ---
 def cargar_datos_csv():
     try:
         if Producto.query.count() == 0:
@@ -32,7 +34,6 @@ def cargar_datos_csv():
                         imagen_url=fila['imagen_url'].strip()
                     ))
                 db.session.commit()
-            print("Base de datos inicializada con CSV.")
     except Exception as e:
         print(f"Error en auto-carga: {e}")
 
@@ -41,7 +42,6 @@ with app.app_context():
     cargar_datos_csv()
 
 # --- RUTAS DE NAVEGACIÓN ---
-
 @app.route('/')
 def inicio():
     return render_template('index.html')
@@ -56,11 +56,51 @@ def categoria_productos(categoria):
     productos = Producto.query.filter(Producto.categoria.ilike(cat_buscada)).all()
     return render_template('productos.html', categoria=categoria, productos=productos)
 
-# --- ESTA ES LA RUTA EXACTA QUE TE PIDE EL LOG EN LA IMAGEN_E9C5A0.PNG ---
+# --- NUEVO: BUSCADOR REAL ---
+@app.route('/buscar', methods=['GET'])
+def buscar():
+    query = request.args.get('q', '').strip()
+    if query:
+        # Busca si la palabra está en el nombre del producto o en la marca
+        productos = Producto.query.filter(
+            Producto.nombre.ilike(f'%{query}%') | Producto.marca.ilike(f'%{query}%')
+        ).all()
+        titulo = f'Resultados para: "{query}"'
+    else:
+        productos = []
+        titulo = 'Búsqueda vacía'
+    return render_template('productos.html', categoria=titulo, productos=productos)
+
+# --- NUEVO: LÓGICA DEL CARRITO ---
 @app.route('/agregar_carrito/<int:producto_id>', methods=['POST'])
 def agregar_carrito(producto_id):
-    # Por ahora solo recarga la página de forma segura
-    return redirect(request.referrer or url_for('refacciones'))
+    if 'carrito' not in session:
+        session['carrito'] = []
+    
+    producto = Producto.query.get_or_404(producto_id)
+    
+    # Guardamos los datos del producto en la sesión del usuario
+    session['carrito'].append({
+        'id': producto.id,
+        'nombre': producto.nombre,
+        'precio': producto.precio,
+        'imagen_url': producto.imagen_url
+    })
+    session.modified = True
+    
+    # Lo mandamos directo a ver su carrito
+    return redirect(url_for('ver_carrito'))
+
+@app.route('/carrito')
+def ver_carrito():
+    carrito = session.get('carrito', [])
+    total = sum(item['precio'] for item in carrito)
+    return render_template('carrito.html', carrito=carrito, total=total)
+
+@app.route('/vaciar_carrito')
+def vaciar_carrito():
+    session.pop('carrito', None)
+    return redirect(url_for('ver_carrito'))
 
 # --- CONTROL DE EXCEL ---
 @app.route('/cargar-excel')
