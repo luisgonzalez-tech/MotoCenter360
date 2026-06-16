@@ -1,53 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
-<style>
-    .contenedor { padding: 40px; max-width: 1200px; margin: auto; color: white; }
-    
-    .nav-top { display: flex; justify-content: flex-start; margin-bottom: 30px; }
-    .btn-rojo { 
-        padding: 10px 25px; background-color: #d00; color: white; 
-        text-decoration: none; border-radius: 5px; font-weight: bold; 
-    }
-
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 25px; }
-    
-    .card { 
-        background: #111; border: 1px solid #333; padding: 20px; 
-        border-radius: 10px; display: flex; flex-direction: column; 
-        justify-content: space-between; height: 450px; text-align: center;
-    }
-    
-    .img-wrap { background: white; height: 160px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; border-radius: 5px; }
-    .img-wrap img { max-width: 90%; max-height: 140px; object-fit: contain; }
-    
-    .tit { font-size: 14px; height: 40px; margin: 10px 0; }
-    .precio { font-size: 18px; font-weight: bold; color: #f90; margin-bottom: 15px; }
-    
-    .btn-agregar { 
-        background: #f90; color: #000; border: none; padding: 12px; 
-        width: 100%; cursor: pointer; border-radius: 5px; font-weight: bold; 
-    }
-</style>
-
-<div class="contenedor">
-    <div class="nav-top">
-        <a href="{{ url_for('refacciones') }}" class="btn-rojo">← Volver</a>
+<div style="padding: 40px; color: white; max-width: 1200px; margin: auto;">
+    <div style="display: flex; justify-content: flex-start; margin-bottom: 30px;">
+        <a href="{{ url_for('refacciones') }}" style="padding: 12px 25px; background-color: #ff0000; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">← Volver</a>
     </div>
-    <h1 style="text-align: center; margin-bottom: 40px;">Resultados: {{ categoria.capitalize() }}</h1>
     
-    <div class="grid">
+    <h1 style="text-align: center;">Resultados: {{ categoria.capitalize() }}</h1>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 25px; margin-top: 30px;">
         {% for p in productos %}
-            <div class="card">
-                <div class="img-wrap"><img src="{{ p.imagen_url }}" alt="{{ p.nombre }}"></div>
-                <h3 class="tit">{{ p.nombre }}</h3>
-                <p>Marca: {{ p.marca }}</p>
-                <p class="precio">${{ "%.2f"|format(p.precio) }}</p>
+            <div style="background: #111; border: 1px solid #333; padding: 20px; border-radius: 10px; display: flex; flex-direction: column; justify-content: space-between; height: 450px; text-align: center;">
+                <div style="background: white; height: 160px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; border-radius: 5px;">
+                    <img src="{{ p.imagen_url }}" style="max-width: 90%; max-height: 140px; object-fit: contain;">
+                </div>
+                <h3 style="font-size: 14px; margin: 10px 0;">{{ p.nombre }}</h3>
+                <p style="font-size: 13px; color: #aaa;">Marca: {{ p.marca }}</p>
+                <p style="font-size: 18px; font-weight: bold; color: #f90;">${{ "%.2f"|format(p.precio) }}</p>
                 <form action="{{ url_for('agregar_carrito', producto_id=p.id) }}" method="POST">
-                    <button type="submit" class="btn-agregar">Agregar al Carrito</button>
+                    <button type="submit" style="background: #f90; color: #000; border: none; padding: 12px; width: 100%; cursor: pointer; border-radius: 5px; font-weight: bold;">Agregar al Carrito</button>
                 </form>
             </div>
         {% else %}
-            <p style="text-align: center; grid-column: 1/-1;">No hay productos. Verifica tu archivo CSV.</p>
+            <p style="grid-column: 1/-1; text-align: center; color: #666;">No se encontraron productos. Ejecuta /cargar-excel para actualizar la base.</p>
         {% endfor %}
     </div>
 </div>
