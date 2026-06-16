@@ -76,17 +76,15 @@
 </head>
 <body>
     <div class="header-container">
-        <!-- Fila de arriba -->
         <div class="top-bar">
             <a href="/" class="logo">MotoCenter<span>360</span></a>
             <div class="search-box">
                 <input type="text" placeholder="Hola, ¿Qué estás buscando?">
             </div>
         </div>
-        <!-- Fila de abajo con "TALLER" -->
         <div class="menu-links">
             <a href="/">INICIO</a>
-            <a href="#">MOTOCICLETA</a>
+            <a href="{{ url_for('categoria_productos', categoria='motocicleta') }}">MOTOCICLETA</a>
             <a href="/refacciones">REFACCIONES</a>
             <a href="#">ACCESORIOS</a>
             <a href="#">TALLER</a>
