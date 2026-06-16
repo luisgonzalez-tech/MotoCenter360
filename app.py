@@ -20,6 +20,13 @@ class Producto(db.Model):
 with app.app_context():
     db.create_all()
 
+# --- RUTAS DE NAVEGACIÓN ---
+
+@app.route('/')
+def inicio():
+    # Ruta principal para que no marque error si entran directo a tu dominio
+    return render_template('index.html')
+
 @app.route('/refacciones')
 def refacciones():
     return render_template('refacciones.html')
@@ -27,10 +34,17 @@ def refacciones():
 @app.route('/refacciones/<categoria>')
 def categoria_productos(categoria):
     cat_buscada = categoria.strip().lower()
-    # Usamos ilike para evitar errores de mayúsculas/minúsculas
-    productos = Producto.query.filter(Producto.categoria.ilike(cat_buscada)).all()
+    # Búsqueda flexible con ilike y %
+    productos = Producto.query.filter(Producto.categoria.ilike(f"%{cat_buscada}%")).all()
     return render_template('productos.html', categoria=categoria, productos=productos)
 
+# --- RUTA DEL CARRITO (La que causó el Error 500) ---
+@app.route('/agregar_carrito/<int:producto_id>', methods=['POST'])
+def agregar_carrito(producto_id):
+    # Por ahora solo recarga la página, luego le metemos la lógica chida del carrito
+    return redirect(request.referrer or url_for('refacciones'))
+
+# --- RUTA DE BASE DE DATOS ---
 @app.route('/cargar-excel')
 def cargar_excel():
     try:
@@ -50,6 +64,7 @@ def cargar_excel():
     except Exception as e:
         return f"Error: {e}"
 
+# --- CONFIGURACIÓN RENDER ---
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
