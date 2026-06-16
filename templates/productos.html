@@ -1,66 +1,64 @@
 {% extends 'base.html' %}
 {% block content %}
 <style>
-    /* Aseguramos que el contenedor general tenga espacio */
-    .contenedor-principal { padding: 40px; color: white; text-align: center; }
+    /* Contenedor con alineación controlada */
+    .contenedor-pagina { padding: 40px; color: white; max-width: 1200px; margin: auto; }
     
+    /* Botón a la izquierda */
+    .nav-arriba { 
+        display: flex; 
+        justify-content: flex-start; /* Esto pone el botón a la izquierda */
+        margin-bottom: 20px; 
+    }
     .btn-volver { 
-        display: inline-block; margin-bottom: 30px; padding: 10px 20px; 
-        background-color: #444; color: white; text-decoration: none; border-radius: 5px; 
+        padding: 10px 20px; background-color: #444; color: white; 
+        text-decoration: none; border-radius: 4px; border: 1px solid #666;
     }
 
-    /* Grid para que todas las tarjetas se alineen igual */
+    /* Grid Profesional */
     .catalogo-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
         gap: 20px;
-        max-width: 1200px;
-        margin: auto;
     }
-
-    /* Cada tarjeta es un bloque independiente que contiene el botón */
     .tarjeta {
-        background: #111;
-        border: 1px solid #333;
-        border-radius: 10px;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        background: #111; border: 1px solid #333; padding: 15px;
+        text-align: center; border-radius: 8px;
     }
-
     .img-box { 
         background: white; height: 180px; display: flex; 
-        align-items: center; justify-content: center; 
-        margin-bottom: 15px; border-radius: 5px; 
+        align-items: center; justify-content: center; margin-bottom: 10px; 
     }
-    .img-box img { max-width: 90%; max-height: 90%; object-fit: contain; }
-    
+    .img-box img { max-width: 90%; max-height: 160px; object-fit: contain; }
     .btn-agregar {
         background: #f90; color: #000; border: none; padding: 12px;
-        width: 100%; font-weight: bold; cursor: pointer; border-radius: 5px;
+        width: 100%; cursor: pointer; border-radius: 4px; font-weight: bold;
     }
 </style>
 
-<div class="contenedor-principal">
-    <a href="{{ url_for('refacciones') }}" class="btn-volver">← Volver a categorías</a>
-    <h1>Resultados para: {{ categoria.capitalize() }}</h1>
+<div class="contenedor-pagina">
+    <div class="nav-arriba">
+        <a href="{{ url_for('refacciones') }}" class="btn-volver">← Volver a categorías</a>
+    </div>
+    
+    <h1 style="text-align: center;">Resultados para: {{ categoria.capitalize() }}</h1>
     
     <div class="catalogo-grid">
-        {% for p in productos %}
-            <div class="tarjeta">
-                <div class="img-box">
-                    <img src="{{ p.imagen_url }}" alt="{{ p.nombre }}">
+        {% if productos %}
+            {% for p in productos %}
+                <div class="tarjeta">
+                    <div class="img-box"><img src="{{ p.imagen_url }}" alt="{{ p.nombre }}"></div>
+                    <h3>{{ p.nombre }}</h3>
+                    <p>Marca: {{ p.marca }}</p>
+                    <p style="font-weight: bold; color: #f90;">${{ "%.2f"|format(p.precio) }}</p>
+                    <form action="{{ url_for('agregar_carrito', producto_id=p.id) }}" method="POST">
+                        <button type="submit" class="btn-agregar">Agregar al Carrito</button>
+                    </form>
                 </div>
-                <h3>{{ p.nombre }}</h3>
-                <p>Marca: {{ p.marca }}</p>
-                <p style="font-weight: bold; color: #f90;">${{ "%.2f"|format(p.precio) }}</p>
-                
-                <form action="{{ url_for('agregar_carrito', producto_id=p.id) }}" method="POST">
-                    <button type="submit" class="btn-agregar">Agregar al Carrito</button>
-                </form>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        {% else %}
+            <p style="text-align: center; grid-column: 1 / -1;">No hay productos disponibles en esta categoría.</p>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
