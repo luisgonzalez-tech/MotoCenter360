@@ -30,17 +30,20 @@ def refacciones():
 
 @app.route('/refacciones/<categoria>')
 def categoria_productos(categoria):
+    # Aseguramos que la búsqueda sea siempre en minúsculas y sin espacios
     productos = Producto.query.filter_by(categoria=categoria.strip().lower()).all()
     return render_template('productos.html', categoria=categoria, productos=productos)
 
-# Ruta corregida: Debe coincidir exactamente con el url_for del HTML
 @app.route('/agregar_carrito/<int:producto_id>', methods=['POST'])
 def agregar_carrito(producto_id):
-    print(f"Producto {producto_id} agregado")
+    # Aquí irá tu lógica de carrito más adelante
+    print(f"Producto {producto_id} agregado al carrito")
     return redirect(request.referrer or url_for('refacciones'))
 
 @app.route('/cargar-excel')
 def cargar_excel():
+    if not os.path.exists('productos.csv'):
+        return "Error: archivo no encontrado"
     try:
         db.session.query(Producto).delete()
         with open('productos.csv', newline='', encoding='latin-1') as f:
@@ -53,9 +56,9 @@ def cargar_excel():
                     imagen_url=fila['imagen_url'].strip()
                 ))
         db.session.commit()
-        return "Carga exitosa."
+        return "Carga exitosa. Base de datos limpia."
     except Exception as e:
-        return f"Error: {e}"
+        return f"Error al cargar: {e}"
 
 if __name__ == '__main__':
     app.run()
