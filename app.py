@@ -17,14 +17,30 @@ class Producto(db.Model):
     precio = db.Column(db.Float, nullable=False)
     imagen_url = db.Column(db.String(500), nullable=False)
 
+# --- AUTO-CARGA DE DATOS ---
 with app.app_context():
     db.create_all()
+    # Si la base de datos está vacía, cargamos el CSV automáticamente
+    if Producto.query.count() == 0:
+        try:
+            with open('productos.csv', mode='r', encoding='latin-1') as f:
+                reader = csv.DictReader(f)
+                for fila in reader:
+                    db.session.add(Producto(
+                        categoria=fila['categoria'].strip().lower(),
+                        nombre=fila['nombre'].strip(),
+                        marca=fila['marca'].strip(),
+                        precio=float(fila['precio']),
+                        imagen_url=fila['imagen_url'].strip()
+                    ))
+                db.session.commit()
+                print("CSV cargado automáticamente al iniciar.")
+        except Exception as e:
+            print(f"Error al cargar CSV: {e}")
 
-# --- RUTAS DE NAVEGACIÓN ---
-
+# --- RUTAS ---
 @app.route('/')
 def inicio():
-    # Ruta principal para que no marque error si entran directo a tu dominio
     return render_template('index.html')
 
 @app.route('/refacciones')
@@ -34,17 +50,13 @@ def refacciones():
 @app.route('/refacciones/<categoria>')
 def categoria_productos(categoria):
     cat_buscada = categoria.strip().lower()
-    # Búsqueda flexible con ilike y %
     productos = Producto.query.filter(Producto.categoria.ilike(f"%{cat_buscada}%")).all()
     return render_template('productos.html', categoria=categoria, productos=productos)
 
-# --- RUTA DEL CARRITO (La que causó el Error 500) ---
 @app.route('/agregar_carrito/<int:producto_id>', methods=['POST'])
 def agregar_carrito(producto_id):
-    # Por ahora solo recarga la página, luego le metemos la lógica chida del carrito
     return redirect(request.referrer or url_for('refacciones'))
 
-# --- RUTA DE BASE DE DATOS ---
 @app.route('/cargar-excel')
 def cargar_excel():
     try:
@@ -60,11 +72,10 @@ def cargar_excel():
                     imagen_url=fila['imagen_url'].strip()
                 ))
             db.session.commit()
-        return "Carga exitosa. Base de datos actualizada."
+        return "Carga manual exitosa."
     except Exception as e:
         return f"Error: {e}"
 
-# --- CONFIGURACIÓN RENDER ---
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
