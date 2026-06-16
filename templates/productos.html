@@ -1,24 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 <style>
-    /* Contenedor principal */
-    .contenedor-pagina { padding: 40px; color: white; text-align: center; }
+    /* Aseguramos que el contenedor general tenga espacio */
+    .contenedor-principal { padding: 40px; color: white; text-align: center; }
     
-    /* Botón de regreso */
     .btn-volver { 
-        display: inline-block; 
-        margin-bottom: 25px; 
-        padding: 12px 25px; 
-        background-color: #444; 
-        color: white; 
-        text-decoration: none; 
-        border-radius: 5px; 
-        font-weight: bold;
-        border: 1px solid #666;
+        display: inline-block; margin-bottom: 30px; padding: 10px 20px; 
+        background-color: #444; color: white; text-decoration: none; border-radius: 5px; 
     }
-    .btn-volver:hover { background-color: #555; }
 
-    /* Grid Profesional */
+    /* Grid para que todas las tarjetas se alineen igual */
     .catalogo-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -26,57 +17,46 @@
         max-width: 1200px;
         margin: auto;
     }
-    .tarjeta-producto {
+
+    /* Cada tarjeta es un bloque independiente que contiene el botón */
+    .tarjeta {
         background: #111;
         border: 1px solid #333;
-        border-radius: 8px;
-        padding: 15px;
+        border-radius: 10px;
+        padding: 20px;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        justify-content: space-between;
     }
-    .imagen-contenedor {
-        background: white;
-        width: 100%;
-        height: 180px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 4px;
-        margin-bottom: 15px;
+
+    .img-box { 
+        background: white; height: 180px; display: flex; 
+        align-items: center; justify-content: center; 
+        margin-bottom: 15px; border-radius: 5px; 
     }
-    .imagen-contenedor img { max-width: 90%; max-height: 160px; object-fit: contain; }
+    .img-box img { max-width: 90%; max-height: 90%; object-fit: contain; }
+    
     .btn-agregar {
-        background: #f90;
-        color: #000;
-        border: none;
-        padding: 12px;
-        width: 100%;
-        font-weight: bold;
-        cursor: pointer;
-        border-radius: 4px;
-        margin-top: auto;
+        background: #f90; color: #000; border: none; padding: 12px;
+        width: 100%; font-weight: bold; cursor: pointer; border-radius: 5px;
     }
 </style>
 
-<div class="contenedor-pagina">
-    <!-- Aquí está tu botón de regreso -->
+<div class="contenedor-principal">
     <a href="{{ url_for('refacciones') }}" class="btn-volver">← Volver a categorías</a>
-    
     <h1>Resultados para: {{ categoria.capitalize() }}</h1>
     
     <div class="catalogo-grid">
         {% for p in productos %}
-            <div class="tarjeta-producto">
-                <div class="imagen-contenedor">
+            <div class="tarjeta">
+                <div class="img-box">
                     <img src="{{ p.imagen_url }}" alt="{{ p.nombre }}">
                 </div>
-                <h3 style="font-size: 15px; height: 40px; margin: 10px 0;">{{ p.nombre }}</h3>
-                <p style="font-size: 14px; color: #888;">Marca: {{ p.marca }}</p>
-                <p style="font-size: 18px; font-weight: bold; color: #f90; margin: 10px 0;">
-                    ${{ "%.2f"|format(p.precio) }}
-                </p>
-                <form action="{{ url_for('agregar_carrito', producto_id=p.id) }}" method="POST" style="width: 100%;">
+                <h3>{{ p.nombre }}</h3>
+                <p>Marca: {{ p.marca }}</p>
+                <p style="font-weight: bold; color: #f90;">${{ "%.2f"|format(p.precio) }}</p>
+                
+                <form action="{{ url_for('agregar_carrito', producto_id=p.id) }}" method="POST">
                     <button type="submit" class="btn-agregar">Agregar al Carrito</button>
                 </form>
             </div>
